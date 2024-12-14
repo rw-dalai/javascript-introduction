@@ -185,6 +185,8 @@ function add(num1, num2) {
 
 In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
 
+- **Creating Arrays**: An array is created using `[]` and by defining elements separated by `,`.
+
 ```javascript
 const fruits = ["Apple", "Banana", "Cherry"];
 ```
