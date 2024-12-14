@@ -177,7 +177,7 @@ A function that takes input parameters and uses them inside the function.
 
 ```javascript
 function greet(name) {
-    return "Hello, " + name;
+    console.log("Hello, " + name);
 }
 ```
 
