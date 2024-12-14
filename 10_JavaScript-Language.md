@@ -20,7 +20,7 @@
 * **Backend Development**: Building server-side applications using e.g. Node.js.
 * **Mobile Development**: Building cross-platform mobile applications using e.g. React Native.
 
-<img src="https://www.datocms-assets.com/48401/1627664328-javascript-everywhere.jpg?fit=max&w=900" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="500"/>
+<img src="https://cdn.prod.website-files.com/5e0f1144930a8bc8aace526c/66a257e610dfc5ab4106c314_wr19t7slu04g8963l40b.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="500"/>
 
 ## 2. Basics
 
