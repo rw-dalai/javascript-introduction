@@ -2,7 +2,27 @@
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="200"/>
 
-## 1. Basics
+## 1. Introduction
+
+### Overview
+* **Link**: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+* **Purpose**: A dynamic, multi-paradigm programming language primarily used for web/mobile development.
+* **Developed By**: Brendan Eich at Netscape in 1995
+
+### Key Features
+* **Interpreted Language**: Executes code line by line without a compilation step.
+* **Dynamic Typed**: Variables types can change during runtime.
+* **Weakly Typed**: Allows implicit type conversion between different data types.
+
+
+### Use Cases
+* **Frontend Development**: Building interactive web apps using e.g. React, Angular, or Vue.
+* **Backend Development**: Building server-side applications using e.g. Node.js.
+* **Mobile Development**: Building cross-platform mobile applications using e.g. React Native.
+
+<img src="https://www.datocms-assets.com/48401/1627664328-javascript-everywhere.jpg?fit=max&w=900" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="500"/>
+
+## 2. Basics
 
 ### Hello, World!
 
@@ -23,7 +43,6 @@ alert("Hello, World!");
 let name = prompt("Enter your name:");
 alert("Hello, " + name);
 ```
-
 
 ### Variables
 
@@ -108,7 +127,6 @@ let empty = null;           // Null
 typeof empty;               // "object"
 ```
 
-
 ### Object Types
 
 In JavaScript `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
@@ -151,10 +169,9 @@ person.greet();  // "Hello, Ana"
 person.age = 19;  // Update age
 ```
 
-
 ### Functions
 
-In JavaScript, functions are used to perform a specific task or calculate a value.
+In JavaScript, `functions` are used to perform a specific task or calculate a value.
 
 - **Simple Function**: A function that does not take any input parameters.
 
@@ -180,7 +197,6 @@ function add(num1, num2) {
 }
 ```
 
-
 ### Arrays
 
 In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
@@ -202,7 +218,6 @@ fruits[0];  // Access the first element, "Apple"
 ```javascript
 fruits[0] = "Orange";  // Update the first element, to "Orange"
 ```
-
 
 ### Operators
 
@@ -247,7 +262,9 @@ typeof number;              // "number"
 
 ### Not a Number (NaN)
 
-- **NaN**: is a number that is the result of an operation that cannot produce a normal result.
+In JavaScript, `NaN` is a special number produced when a `mathematical operation` fails.
+
+- **NaN**: is technically a `number`.
 
 ```javascript
 typeof NaN;                 // "number"
@@ -273,6 +290,8 @@ number === NaN;
 ```
 
 ### Control Structures
+
+In JavaScript, control structures are used to control the flow of a program.
 
 * **If-Else Statement**: Executes a block of code if a specified condition is `true`.
 

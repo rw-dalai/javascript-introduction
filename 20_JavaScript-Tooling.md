@@ -2,25 +2,8 @@
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="200"/>
 
-## 1. Introduction
 
-### Overview
-* **Link**: https://developer.mozilla.org/en-US/docs/Web/JavaScript
-* **Purpose**: A dynamic, multi-paradigm programming language primarily used for web/mobile development.
-* **Developed By**: Brendan Eich at Netscape in 1995
-
-### Key Features
-* **Interpreted Language**: Executes code line by line without a compilation step.
-* **Dynamic Typed**: Variables types can change during runtime.
-* **Weakly Typed**: Allows implicit type conversion between different data types.
-
-### Use Cases
-* **Frontend Development**: Building interactive web apps using e.g. React, Angular, or Vue.
-* **Backend Development**: Building server-side applications using e.g. Node.js.
-* **Mobile Development**: Building cross-platform mobile applications using e.g. React Native.
-
-
-## 2. JavaScript Runtimes
+## 1. JavaScript Runtimes
 
 JavaScript is an interpreted language and needs a runtime environment to be executed.
 
@@ -42,7 +25,7 @@ On the server-side or on the command line, you can use JavaScript with the follo
 - **Bun**: A JavaScript/TypeScript runtime build on JavaScript Core engine, and an all-in-one tool for building, testing, and deploying JavaScript applications.
 
 
-## 3. JavaScript Frameworks
+## 2. JavaScript Frameworks
 
 <p float="left">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbOFmjGchTMwQriXqezOovYKqXWK3YXUnFlQ&s" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
@@ -58,7 +41,7 @@ When building bigger web/mobile applications, developers use JavaScript framewor
 * **Vue**: Developed by Evan You in 2014.
 
 
-## 4. Node and NPM
+## 3. Node and NPM
 
 <p float="left">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/2560px-Node.js_logo_2015.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="200"/>
@@ -94,7 +77,7 @@ npx -v
 ```
 
 
-## 5. Execute JavaScript with Node
+## 4. Execute JavaScript with Node
 
 We are going to create a simple JavaScript file and run it using Node.
 
@@ -115,7 +98,7 @@ console.log(message);
 node main.js
 ```
 
-## 6. Create NPM Project
+## 5. Create NPM Project
 
 We are going to create a simple NPM project and run it using NPM commands.
 
@@ -174,7 +157,7 @@ console.log(message);
 npm start
 ```
 
-## 7. Vite
+## 6. Vite
 
 <img src="https://vitejs.dev/logo.svg" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
 
