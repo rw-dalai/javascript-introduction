@@ -20,20 +20,20 @@
 * **Mobile Development**: Building cross-platform mobile applications using e.g. React Native.
 
 
-## 2. Runtime Environment
+## 2. JavaScript Runtimes
 
 JavaScript is an interpreted language and needs a runtime environment to be executed.
 
 ### Browser
 
-Browsers include a JavaScript runtime to execute JavaScript code.
+Browsers include a JavaScript runtime to execute JavaScript code:
 
 - **Chrome**: Includes `V8 Engine` as the JavaScript runtime.
 - **Firefox**: Includes `Spider Monkey` as the JavaScript runtime.
 - **Safari**: Includes `JavaScript Core` JavaScript runtime.
 - **Edge**: Based on `Chromium`, includes `V8 Engine` as the JavaScript runtime.
 
-### Server / Command Line
+### Server
 
 On the server-side or on the command line, you can use JavaScript with the following runtimes:
 
@@ -41,23 +41,16 @@ On the server-side or on the command line, you can use JavaScript with the follo
 - **Deno**: A JavaScript/TypeScript runtime improving Node, focusing on security and developer experience.
 - **Bun**: A JavaScript/TypeScript runtime build on JavaScript Core engine, and an all-in-one tool for building, testing, and deploying JavaScript applications.
 
-### Mobile / Desktop
 
-On mobile and desktop, you can use JavaScript with the following frameworks:
-
-- **React Native**: A JavaScript framework for building cross-platform **native** mobile applications.
-- **Ionic/Capacitor**: A JavaScript framework for building cross-platform **hybrid** mobile applications.
-- **Electron**: A JavaScript framework for building cross-platform desktop applications.
-
-
-## 3. Frontend Frameworks
+## 3. JavaScript Frameworks
 
 <p float="left">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbOFmjGchTMwQriXqezOovYKqXWK3YXUnFlQ&s" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/440px-React-icon.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/200px-Vue.js_Logo_2.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
 </p>
-Frameworks help build components, manage state, and handle routing in web applications.
+
+When building bigger web/mobile applications, developers use JavaScript frameworks to manage the complexity:
 
 * **React**: Developed by Facebook in 2013.
 * **React Native**: Developed by Facebook in 2015.
