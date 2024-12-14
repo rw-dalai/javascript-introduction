@@ -1,6 +1,47 @@
 # Java vs JavaScript
 
-## 1. Type System
+## 1. Execution
+
+### Java
+
+- Java is a `compiled` language which means that the code is compiled into `bytecode` and then executed by the `JVM`.
+- Java code can be executed on any platform that has a `JVM` installed.
+
+### JavaScript
+
+- JavaScript is an `interpreted` language which means that the code is executed by the `JavaScript engine` without a compilation step.
+- JavaScript code can be executed in the `browser` or on the `server` but it needs a `JavaScript runtime` to execute the code.
+
+
+## 2. Compilation
+
+### Java
+
+- Java code is `compiled` into `bytecode` by the `Javac` compiler.
+- The `bytecode` is then executed by the `JVM` which translates it into machine code.
+
+
+### JavaScript
+
+- JavaScript code get directly executed by the `JavaScript engine` without a compilation step.
+- The `JavaScript engine` parses the code, generates `bytecode` and then executes it.
+
+
+## 3. Type Error
+
+### Java
+
+- The Java Compiler checks the code for `type errors` during the compilation step.
+- If there are any `type errors` the code will not compile and the developer has to fix the errors.
+
+
+### JavaScript
+
+- There is no Java Compiler in JavaScript that checks the code for `type errors`.
+- If there are any `type errors` they will only be detected during runtime which can lead to unexpected behavior.
+
+
+## 4. Type System
 
 ### Java
 
@@ -32,13 +73,13 @@ typeof name; // "number"
 let value = +true; // 1
 ```
 
-## 2. Classes and Objects
+## 5. Classes and Objects
 
 ### Java Classes
 
 - In Java we can define classes with `class` and place `attributes` and `methods` inside the class.
-- This encapsulates the data `attributes` and behavior `methods` inside the class.
-- Then we create `instances` with `new` and access the public methods.
+- This encapsulates the `attributes` aka data `methods` aka behaviour inside the same class.
+- Then we create `instances` aka objects with `new` and access it's public methods.
 
 ```java
 public class Person {
@@ -64,10 +105,10 @@ public class Person {
 
 - **Usage**: After we instantiate an object and access its public methods.
 ```java
-// 1. Create an Instance with `new`
+// 1. Create an object with `new`
 Person person = new Person("Alice");
 
-// 2. Use the instance
+// 2. Use the object
 person.setName("Bob");
 String greetings = person.greet();
 System.out.println(greetings); // "Hello, Bob"
@@ -76,7 +117,7 @@ System.out.println(greetings); // "Hello, Bob"
 
 ### JavaScript Classes
 
-- In JavaScript we can uses classes like in Java.
+- In JavaScript we can use classes like in Java.
 - However, internally JavaScript uses `prototypes` to mimic classes hence it's just a syntactic sugar.
 
 ```javascript
@@ -101,9 +142,9 @@ class Person {
 }
 ```
 
-- **Usage**: After we instantiate an object and access its public methods.
+- **Usage**: After we instantiate an object and access it's public methods.
 ```javascript
-// 1. Create an Instance with `new`
+// 1. Create an object with `new`
 const person = new Person("Alice");
 
 // 2. Use the object
@@ -120,11 +161,9 @@ console.log(greetings); // "Hello, Bob"
 
 ```javascript
 const person = {
-    // Properties
-    name: "Alice",
-    
-    // Methods
-    greet: function() {
+    name: "Alice",         // Property
+
+    greet: function() {    // Method
         return "Hello, " + this.name;
     }
 };
