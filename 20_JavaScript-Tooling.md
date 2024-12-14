@@ -172,7 +172,7 @@ npm start
 - **Optimized Build**: Generates optimized production builds with minimal configuration.
 - **Plugin System**: Supports plugins for customizing the build process.
 
-## 8. Create Vite Project
+## 7. Create Vite Project
 
 We are going to create a simple Vite project and run it using NPM commands.
 
