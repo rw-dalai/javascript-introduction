@@ -200,7 +200,7 @@ npm start
 
 We are going to create a simple Vite project and run it using NPM commands.
 
-- **Create a directory `my-npm-project`**:
+- **Create a directory `my-vite-project`**:
 ```sh
 mkdir my-vite-project
 cd my-vite-project
