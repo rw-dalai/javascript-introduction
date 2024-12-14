@@ -1,8 +1,11 @@
 # Java vs JavaScript
 
+<img src="https://www.cybher.org/wp-content/uploads/2021/11/jvm.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="800"/>
+
 ## 1. Execution
 
 ### Java
+
 
 - Java is a `compiled` language which means that the code is compiled into `bytecode` and then executed by the `JVM`.
 - Java code can be executed on any platform that has a `JVM` installed.
