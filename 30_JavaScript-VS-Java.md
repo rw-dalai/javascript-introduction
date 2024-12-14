@@ -2,53 +2,56 @@
 
 <img src="https://www.cybher.org/wp-content/uploads/2021/11/jvm.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="800"/>
 
-## 1. Execution
+## 1. Compiled vs Interpreted
 
 ### Java
 
-
-- Java is a `compiled` language which means that the code is compiled into `bytecode` and then executed by the `JVM`.
-- Java code can be executed on any platform that has a `JVM` installed.
+- **Compiled**: Java is a `compiled` language which means that the code is compiled into `bytecode` and then executed by the `JVM`.
+- **JVM**: Java code can be executed on any platform that has a `JVM` installed.
 
 ### JavaScript
 
-- JavaScript is an `interpreted` language which means that the code is executed by the `JavaScript engine` without a compilation step.
-- JavaScript code can be executed in the `browser` or on the `server` but it needs a `JavaScript runtime` to execute the code.
+- **Interpreted**: JavaScript is an `interpreted` language which means it is executed by the `JavaScript engine` without a compilation step.
+- **JS Runtime**: JavaScript code can be executed in the `browser` or on the `server` but it needs a `JavaScript runtime` to execute the code.
 
 
-## 2. Compilation
+## 2. Execution Steps
 
 ### Java
 
-- Java code is `compiled` into `bytecode` by the `Javac` compiler.
-- The `bytecode` is then executed by the `JVM` which translates it into machine code.
-
+- **1. Compilation**: Java code is first compiled into `bytecode` by the `javac` compiler.
+- **2. Execution**: The `JVM` interprets the `bytecode` and runs the code on the machine.
+- **3. Optimization**: The `JVM` uses `JIT` (Just-in-Time) compilation to convert frequently executed code into machine code during runtime for better performance.
 
 ### JavaScript
 
-- JavaScript code get directly executed by the `JavaScript engine` without a compilation step.
-- The `JavaScript engine` parses the code, generates `bytecode` and then executes it.
+- **1. Execution**: JavaScript is `parsed`, `compiled` into bytecode, and executed by the `JavaScript engine` e.g. `V8 Engine` in the browser.
+- **2. Optimization**: The `JavaScript engine` uses `JIT` (Just-in-Time) compilation to convert frequently executed code into machine code during runtime for better performance.
 
 
-## 3. Type Error
+
+## 3. Compile vs Runtime Errors
 
 ### Java
 
-- The Java Compiler checks the code for `type errors` during the compilation step.
-- If there are any `type errors` the code will not compile and the developer has to fix the errors.
+- **Compiler**: The Java Compiler checks the code for `type errors` and `syntax errors` during development.
+- **Errors during Compile-Time**: If there are any errors the code will not run and the `compile-time` errors will be shown.
 
+
+<img src="./_assets/java-type-error.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="500"/>
 
 ### JavaScript
 
-- There is no Java Compiler in JavaScript that checks the code for `type errors`.
-- If there are any `type errors` they will only be detected during runtime which can lead to unexpected behavior.
+- **No Compiler**: There is no JavaScript Compiler that checks the code for `type errors` or `syntax errors` during development.
+- **Errors during Runtime**: If there are any errors the code will still run e.g. in the browser, but causes `runtime errors` and unexpected behavior.
 
+<img src="./_assets/js-type-error.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="500"/>
 
 ## 4. Type System
 
 ### Java
 
-- Java has a `static` and `strong type` system which means that variables have a fixed type and cannot change.
+- **Static Typed**: Java has a `static` and `strong type` system which means that variables have a fixed type and cannot change.
 
 ```java
 String name = "John";
@@ -62,7 +65,7 @@ int value = +true;
 
 ### JavaScript
 
-- JavaScript has a `dynamic` and `weak type` system which means that variables can change types and allow type conversion between different data types.
+- **Dynamic Typed**: JavaScript has a `dynamic` and `weak type` system which means that variables can change types and allow type conversion between different data types.
 
 ```javascript
 let name = "John";
@@ -80,9 +83,9 @@ let value = +true; // 1
 
 ### Java Classes
 
-- In Java we can define classes with `class` and place `attributes` and `methods` inside the class.
-- This encapsulates the `attributes` aka data `methods` aka behaviour inside the same class.
-- Then we create `instances` aka objects with `new` and access it's public methods.
+- **Classes**: In Java we can define classes with `class` and place `attributes` and `methods` inside the class.
+- **Encapsulation**: This encapsulates the `attributes` aka data `methods` aka behaviour inside the same class.
+- **Instance**: Then we create `instances` aka objects with `new` and access it's public methods.
 
 ```java
 public class Person {
@@ -120,8 +123,8 @@ System.out.println(greetings); // "Hello, Bob"
 
 ### JavaScript Classes
 
-- In JavaScript we can use classes like in Java.
-- However, internally JavaScript uses `prototypes` to mimic classes hence it's just a syntactic sugar.
+- **Classes**: In JavaScript we can use classes like in Java.
+- **Syntactic Sugar**: However, internally JavaScript uses `prototypes` to mimic classes hence it's just a syntactic sugar.
 
 ```javascript
 class Person {
@@ -158,9 +161,9 @@ console.log(greetings); // "Hello, Bob"
 
 ### JavaScript Objects
 
-- In JavaScript we often create `objects` with specific `properties` and their values directly.
-- We can also add `methods` to the object to encapsulate the behavior.
-- However, the properties are public and can be accessed directly.
+- **Objects**: In JavaScript we often create `objects` with specific `properties` and their values directly.
+- **Properties**: However, the properties are public and can be accessed directly.
+- **Methods**: We can also add `methods` to the object to update or access the properties.
 
 ```javascript
 const person = {
