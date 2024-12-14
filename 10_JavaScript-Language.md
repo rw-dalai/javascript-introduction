@@ -113,9 +113,7 @@ typeof empty;               // "object"
 
 In JavaScript `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
 
-* **Simple Objects**:
-
-An object is created using `{}` and by defining properties using `key: value` pairs.
+* **Simple Objects**: An object is created using `{}` and by defining properties using `key: value` pairs.
 
 ```javascript
 const person = {
@@ -125,9 +123,7 @@ const person = {
 };
 ```
 
-* **Objects with Methods**:
-
-A method in an object is created using a `key: value` pair where the value is a function.
+* **Objects with Methods**: A method in an object is created using a `key: value` pair where the value is a function.
 
 ```javascript
 const person = {
@@ -160,9 +156,7 @@ person.age = 19;  // Update age
 
 In JavaScript, functions are used to perform a specific task or calculate a value.
 
-- **Simple Function**:
-
-A function that does not take any input parameters.
+- **Simple Function**: A function that does not take any input parameters.
 
 ```javascript
 function greet() {
@@ -170,10 +164,7 @@ function greet() {
 }
 ```
 
-* **Function with Parameters**:
-
-A function that takes input parameters and uses them inside the function.
-
+* **Function with Parameters**: A function that takes input parameters and uses them inside the function.
 
 ```javascript
 function greet(name) {
@@ -181,9 +172,7 @@ function greet(name) {
 }
 ```
 
-* **Function with Return Value**:
-
-A function that returns a value using the `return` keyword.
+* **Function with Return Value**: A function that returns a value using the `return` keyword.
 
 ```javascript
 function add(num1, num2) {
@@ -254,22 +243,21 @@ let number = Number("42");  // 42
 typeof number;              // "number"
 ```
 
-- **NaN**: Not a Number
+### Not a Number (NaN)
 
-In JavaScript, `NaN` is a special value that represents an invalid number.
+- **NaN**: is a number that is the result of an operation that cannot produce a normal result.
 
 ```javascript
 typeof NaN;                 // "number"
 ```
 
-In JavaScript, dividing a number by a non-numeric value results in `NaN`.
+- **Division by Zero**: Dividing a number by zero results in `NaN`.
 
 ```javascript
 let result = 10 / "apple";  // NaN
 typeof result;              // "number"
 ```
-
-Reading a number from the user via `prompt` and converting it with `Number` may result in `NaN`.
+- **Invalid Number**: Converting an invalid number results in `NaN`.
 
 ```JavaScript
 // User inputs `apple`
@@ -284,11 +272,7 @@ number === NaN;
 
 ### Control Structures
 
-In JavaScript, control structures are used to control the flow of a program.
-
-* **If-Else Statement**
-
-In JavaScript, the `if-else` statement is used to execute a block of code based on a condition.
+* **If-Else Statement**: Executes a block of code if a specified condition is `true`.
 
 ```javascript
 // Prompt the user for their age
@@ -305,9 +289,7 @@ if (age >= 18) {
 }
 ```
 
-* **For-Statement**
-
-In JavaScript, the `for` loop is used to execute a block of code a specified number of times.
+* **For-Statement**: Loops through a block of code a number of times.
 
 ```javascript
 // Array of fruits
