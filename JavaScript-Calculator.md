@@ -60,21 +60,21 @@ Delete the content of the `styles.css` file but keep the file.
 
 Delete the content of the `main.js` file but keep the file.
 
-## 2. Create Basic Calculator Functions
+## 2. Create Calculator Functions
 
 <img src="https://cdn.vox-cdn.com/thumbor/IehwTKigu5kUc9EIMdiHES_XNOU=/0x0:2752x2064/1400x1050/filters:focal(1921x1693:1922x1694)/cdn.vox-cdn.com/uploads/chorus_asset/file/25522223/IMG_CF7B8A1AD79A_1.jpeg" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="200"/>
 
 ### Add Function
 
-
-We are going to create the basic calculator functions that will be used to perform the calculations.
+We are going to create the basic calculator functions in the `main.js` file.
 
 
 - **Add Function - Simple**:
 
-Our first add function has two parameters `num1` and `num2` of type `number` and returns the sum of the two numbers.
+Our first `add` function has two parameters `num1` and `num2` returns the sum of the two numbers.
 
 ```javascript
+// src/main.js
 export function add(num1, num2) {
   return num1 + num2;
 }
@@ -82,14 +82,16 @@ export function add(num1, num2) {
 
 - **Add Function - Improved by Type Checking**:
 
-We can improve the function by adding some validation to check if the parameters are numbers.
+Let's improve the `add` function by adding some validation to check if the parameters are numbers.
 
 ```javascript
+// src/main.js
 export function add(num1, num2) {
   if (typeof num1 == 'number' && typeof num2 == 'number') {
     return num1 + num2;
   } else {
     console.error('Invalid parameters. Please provide numbers.');
+    return null;
   }
 }
 ```
