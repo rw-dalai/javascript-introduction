@@ -108,8 +108,8 @@ const person = new Person("Alice");
 
 // 2. Use the object
 person.name = "Bob";
-console.log(person.name);
-console.log(person.greet());
+const greetings = person.greet();
+console.log(greetings); // "Hello, Bob"
 ```
 
 ### JavaScript Objects
