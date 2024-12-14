@@ -52,8 +52,8 @@ public class Person {
         return name;
     }
     
-    public void setName(String newName) {   // Setter
-        name = newName;
+    public void setName(String name) {      // Setter
+        this.name = name;
     }
     
     public String greet() {                 // Method
