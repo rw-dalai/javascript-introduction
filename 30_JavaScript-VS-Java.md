@@ -17,12 +17,12 @@
 
 - **1. Compilation**: Java code is first compiled into `bytecode` by the `javac` compiler.
 - **2. Execution**: The `JVM` interprets the `bytecode` and runs the code on the machine.
-- **3. Optimization**: The `JVM` uses `JIT compilation` to convert frequently executed code into `machine code` for performance.
+- **3. Optimization**: The `JVM` uses `JIT compilation` to convert frequent code into `machine code` for speed.
 
 ### JavaScript
 
-- **1. Execution**: JavaScript is `parsed`, `compiled` into bytecode, and executed by the `JavaScript engine` e.g. `V8 Engine` in the browser.
-- **2. Optimization**: The `JavaScript runtime` uses `JIT compilation`  to convert frequently executed code into `machine code` for performance.
+- **1. Execution**: JavaScript is `parsed`, `compiled` into bytecode, and executed by the `JavaScript runtime`.
+- **2. Optimization**: The `JavaScript runtime` uses `JIT compilation` to convert frequent code into `machine code` for speed.
 
 
 ## 3. Compile vs Runtime Errors
