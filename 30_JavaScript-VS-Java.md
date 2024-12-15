@@ -1,33 +1,28 @@
 # Java vs JavaScript
 
-<img src="https://www.cybher.org/wp-content/uploads/2021/11/jvm.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="800"/>
+<img src="https://www.cybher.org/wp-content/uploads/2021/11/jvm.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="500"/>
 
-## 1. Compiled vs Interpreted
+## 1. Overview
 
-### Java
+- **Compiler**: Translates the code into `machine code` or `bytecode` before execution.
+- **Interpreter**: Translates and executes the code line by line during `runtime`.
+- **Java**: Compiled language that uses `JVM` to execute the `bytecode`.
+- **JavaScript**: Interpreted language that uses `JavaScript runtime` to execute the code.
+- **JIT Compilation**: Both languages use `JIT` (Just-in-Time) compilation to optimize frequently executed code.
+- **Errors**: Java detects errors during `compilation` while JavaScript detects errors during `runtime`.
 
-- **Compiled**: Java is a `compiled` language which means that the code is compiled into `bytecode` and then executed by the `JVM`.
-- **JVM**: Java code can be executed on any platform that has a `JVM` installed.
-
-### JavaScript
-
-- **Interpreted**: JavaScript is an `interpreted` language which means it is executed by the `JavaScript engine` without a compilation step.
-- **JS Runtime**: JavaScript code can be executed in the `browser` or on the `server` but it needs a `JavaScript runtime` to execute the code.
-
-
-## 2. Execution Steps
+## 2. Execution Process
 
 ### Java
 
 - **1. Compilation**: Java code is first compiled into `bytecode` by the `javac` compiler.
 - **2. Execution**: The `JVM` interprets the `bytecode` and runs the code on the machine.
-- **3. Optimization**: The `JVM` uses `JIT` (Just-in-Time) compilation to convert frequently executed code into machine code during runtime for better performance.
+- **3. Optimization**: The `JVM` uses `JIT compilation` to convert frequently executed code into `machine code` for performance.
 
 ### JavaScript
 
 - **1. Execution**: JavaScript is `parsed`, `compiled` into bytecode, and executed by the `JavaScript engine` e.g. `V8 Engine` in the browser.
-- **2. Optimization**: The `JavaScript engine` uses `JIT` (Just-in-Time) compilation to convert frequently executed code into machine code during runtime for better performance.
-
+- **2. Optimization**: The `JavaScript runtime` uses `JIT compilation`  to convert frequently executed code into `machine code` for performance.
 
 
 ## 3. Compile vs Runtime Errors
@@ -43,7 +38,7 @@
 ### JavaScript
 
 - **No Compiler**: There is no JavaScript Compiler that checks the code for `type errors` or `syntax errors` during development.
-- **Errors during Runtime**: If there are any errors the code will still run e.g. in the browser, but causes `runtime errors` and unexpected behavior.
+- **Errors during Runtime**: If there are any errors the code will still run but causes `runtime errors` and unexpected behavior.
 
 <img src="./_assets/js-type-error.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="500"/>
 
