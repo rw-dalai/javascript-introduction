@@ -70,6 +70,7 @@ pi = 3.14159;  // ❌ Error: Assignment to constant variable
 
 ### Data Types
 
+
 In JavaScript, there exists two types of data types: `Primitive` and `Objects`.
 
 - **Primitive**: Single values like `string`, `number`, `boolean`
@@ -96,8 +97,7 @@ typeof person;  // "object"
 
 ### Primitive Types
  
-In JavaScript, there are 7 primitive data types but we will focus on the most common ones.  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_overview
+![img.png](_assets/js-primitive-types.png)
 
 - **Number**: Numeric data type
 ```javascript
