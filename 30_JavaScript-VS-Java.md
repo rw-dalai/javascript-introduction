@@ -162,9 +162,8 @@ console.log(greetings); // "Hello, Bob"
 
 ```javascript
 const person = {
-    name: "Alice",         // Property
-
-    greet: function() {    // Method
+    name: "Alice", // Property
+    greet: function() { // Method
         return "Hello, " + this.name;
     }
 };
