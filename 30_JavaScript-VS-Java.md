@@ -8,7 +8,7 @@
 - **Interpreter**: Translates and executes the code line by line during `runtime`.
 - **Java**: Compiled language that uses `JVM` to execute the `bytecode`.
 - **JavaScript**: Interpreted language that uses `JavaScript runtime` to execute the code.
-- **JIT Compilation**: Both languages use `JIT` (Just-in-Time) compilation to optimize frequently executed code.
+- **JIT Compilation**: Both languages use `JIT` (Just-in-Time) compilation to convert frequent code into `machine code` for speed.
 - **Errors**: Java detects errors during `compilation` while JavaScript detects errors during `runtime`.
 
 ## 2. Execution Process
