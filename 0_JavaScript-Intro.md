@@ -17,7 +17,7 @@
 ![img.png](_assets/js-intro-4.png)
 
 
-# 5. Famous JavaScript Engines
+# 5. JavaScript Engine
 
 ![img.png](_assets/js-intro-5.png)
 
@@ -37,6 +37,5 @@
 ![img.png](_assets/js-intro-8.png)
 
 # 9. JavaScript Frameworks
-
 
 ![img.png](_assets/js-intro-9.png)
