@@ -261,7 +261,7 @@ typeof pixel;                   // "number"
 
 - **parseInt Fn**: Converts an integer-based `string` to a `number`.
 
-*Forgiving*: If the string is not a valid integer, it returns the integer part.
+*Forgiving*: If the string is not a valid integer, it returns the `integer part`.
 
 ```javascript
 let number = parseInt("42");    // 42
