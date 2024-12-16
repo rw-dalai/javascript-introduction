@@ -51,17 +51,17 @@ alert("Hello, " + name);
 
 ### Variables
 
-In JavaScript variables are declared using `let` and `const`.
+In JavaScript, variables are declared using `let` and `const`.
 
 
-* **let**: Mutable variable that can be reassigned.
+- **let**: Mutable variable that can be reassigned.
 
 ```javascript
 let name = "Alice";
 name = "Bob"; // ✅ OK: Reassigning the variable
 ```
 
-* **const**: Immutable variable that cannot be reassigned.
+- **const**: Immutable variable that cannot be reassigned.
 
 ```javascript
 const pi = 3.14;
@@ -95,7 +95,8 @@ typeof person;  // "object"
 ```
 
 ### Primitives
- 
+
+In JavaScript, `primitive` data types are immutable in the sense that they cannot be changed. e.g. `42` is always `42`.
 ![img.png](_assets/js-primitive-types.png)
 
 - **Number**: Numeric data type
@@ -133,9 +134,9 @@ typeof empty;               // "object"
 
 ### Objects
 
-In JavaScript `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
+In JavaScript, `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
 
-* **Simple Objects**: An object is created using `{}` and by defining properties using `key: value` pairs.
+- **Simple Objects**: An object is created using `{}` and by defining properties using `key: value` pairs.
 
 ```javascript
 const person = {
@@ -145,7 +146,7 @@ const person = {
 };
 ```
 
-* **Objects with Methods**: A method in an object is created using a `key: value` pair where the value is a function.
+- **Objects with Methods**: A method in an object is created using a `key: value` pair where the value is a function.
 
 ```javascript
 const person = {
@@ -160,14 +161,14 @@ const person = {
 };
 ```
 
-* **Accessing Properties**: Using the `.` operator.
+- **Accessing Properties**: Using the `.` operator.
 
 ```javascript
 person.name;  // "Ana"
 person.greet();  // "Hello, Ana"
 ```
 
-* **Updating Properties**: Using the `=` operator.
+- **Updating Properties**: Using the `=` operator.
 
 ```javascript
 person.age = 19;  // Update age
@@ -185,7 +186,7 @@ function greet() {
 }
 ```
 
-* **Function with Parameters**: A function that takes input parameters and uses them inside the function.
+- **Function with Parameters**: A function that takes input parameters and uses them inside the function.
 
 ```javascript
 function greet(name) {
@@ -193,7 +194,7 @@ function greet(name) {
 }
 ```
 
-* **Function with Return Value**: A function that returns a value using the `return` keyword.
+- **Function with Return Value**: A function that returns a value using the `return` keyword.
 
 ```javascript
 function add(num1, num2) {
@@ -203,7 +204,7 @@ function add(num1, num2) {
 
 ### Operators
 
-In JavaScript operators are used to perform operations on variables and values.
+In JavaScript, `operators` are used to perform operations on variables and values.
 
 - **Arithmetic Operators**: `+`, `-`, `*`, `/`
 
@@ -216,8 +217,6 @@ let quotient = 10 / 5;      // 2
 
 - **Assignment Operators**: `=`, `+=`, `-=`, `*=`, `/=`
 
-In JavaScript, you can assign values using `=` and perform an operation at the same time.
-
 ```javascript
 let number = 10;
 number += 5;                // number = number + 5
@@ -225,7 +224,7 @@ number += 5;                // number = number + 5
 
 - **Loose vs Strict Equality**: `==`, `===`
 
-In JavaScript, you can compare values using `===` (strict equality) and `==` (loose equality).
+In JavaScript, to compare values by using `===` (strict equality) and `==` (loose equality).
 
 ```javascript
 10 == 10;                   // true (loose equality)
@@ -235,7 +234,7 @@ In JavaScript, you can compare values using `===` (strict equality) and `==` (lo
 
 - **Number**: Converts a `string` to an `number`.
 
-In JavaScript, you can convert a string to an integer using the `Number` function.
+In JavaScript, to convert a string to an integer by using the `Number` function.
 
 ```javascript
 let number = Number("42");  // 42
@@ -273,7 +272,19 @@ number === NaN;
 
 ### If Statement
 
-* **If-Else Statement**: Executes a block of code if a specified condition is `true`.
+In JavaScript, the `if` statement is used to execute a block of code if a specified condition is `true`.
+
+
+- **If Statement**: Executes a block of code if the condition is `true`.
+
+```javascript
+// Check if age is greater or equal to 18
+if (age >= 18) {
+    console.log("You are an adult");
+}
+```
+
+- **If-Else Statement**: Executes a block of code if the condition is `true`, otherwise executes another block of code.
 
 ```javascript
 // Prompt the user for their age
@@ -293,7 +304,9 @@ if (age >= 18) {
 
 ### For Statement
 
-* **For-Statement**: Loops through a block of code a number of times.
+In JavaScript, the `for` statement is used to execute a block of code a number of times.
+
+- **For-Statement**: Call a block of code multiple times.
 
 ```javascript
 // Loop from 0 to 4
@@ -302,11 +315,11 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-* **Calling a Function**: Inside a for-loop.
+- **Loop over a function**: Call a function multiple times.
 
 ```javascript
-// Loop from 0 to 4
-for (let i = 0; i < 5; i++) {
+// Call the greet function 3 times
+for (let i = 0; i < 3; i++) {
     greet("Alice");
 }
 ```
@@ -323,20 +336,20 @@ const name = "Alice";
 const message = 'Hello, World!';
 ```
 
-* **Concatenation**: Combining strings using the `+` operator.
+- **Concatenation**: Combining strings using the `+` operator.
 
 ```javascript
 const greeting = "Hello, " + name;
 ```
 
-* **Template Literals**: Using backticks to create strings with placeholders `${}`.
+- **Template Literals**: Using backticks to create strings with placeholders `${}`.
 
 ```javascript
 const name = "Alice";
 const greeting = `Hello, ${name}`;
 ```
 
-* **Length**: Returns the number of characters in a string.
+- **Length**: Returns the number of characters in a string.
 
 ```javascript
 const name = "Alice";
@@ -354,25 +367,25 @@ In JavaScript, `arrays` are used to store an `ordered collection` of data called
 const fruits = ["Apple", "Banana", "Cherry"];
 ```
 
-* **Accessing Elements**: Using `[]` and the index.
+- **Accessing Elements**: Using `[]` and the index.
 
 ```javascript
 fruits[0];  // Access the first element, "Apple"
 ```
 
-* **Updating Elements**: Using `=` and the index.
+- **Updating Elements**: Using `=` and the index.
 
 ```javascript
 fruits[0] = "Orange";  // Update the first element, to "Orange"
 ```
 
-* **Length**: Returns the number of elements in an array.
+- **Length**: Returns the number of elements in an array.
 
 ```javascript
 fruits.length;  // 3
 ```
 
-* **For-Statement**: Loops through an array of elements.
+- **Looping over an array**: Using a `for` loop and the `length` property.
 
 ```javascript
 // Array of fruits
