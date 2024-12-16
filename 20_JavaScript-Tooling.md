@@ -2,27 +2,30 @@
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" style="margin-left: 75px; margin-top: 20px; margin-bottom: 20px" width="200"/>
 
-
 ## 1. JavaScript Runtimes
 
-JavaScript is an interpreted language and needs a runtime environment to be executed.
+### Overview
+JavaScript is an interpreted language and needs a `Host Environment` aka `JavaScript Runtime` to execute the code.
+
+- **JavaScript Runtime**: Includes the JavaScript Engine, Web APIs, and other tools to run JavaScript code.
+- **JavaScript Engine**: The core component that interprets and executes the JavaScript code.
 
 ### Browser
 
-Browsers include a JavaScript runtime to execute JavaScript code:
+Every browser has a `JavaScript Runtime` which has a `JavaScript Engine` to execute the code:
 
 - **Chrome**: Includes `V8 Engine` as the JavaScript runtime.
 - **Firefox**: Includes `Spider Monkey` as the JavaScript runtime.
-- **Safari**: Includes `JavaScript Core` JavaScript runtime.
+- **Safari**: Includes `JavaScriptCore` JavaScript runtime.
 - **Edge**: Based on `Chromium`, includes `V8 Engine` as the JavaScript runtime.
 
 ### Server
 
-On the server-side or on the command line, you can use JavaScript with the following runtimes:
+On the server-side or on the command line, we have different JavaScript runtimes:
 
-- **Node**: A JavaScript runtime built on Chrome's V8 engine, enabling JavaScript to run outside the browser.
-- **Deno**: A JavaScript/TypeScript runtime improving Node, focusing on security and developer experience.
-- **Bun**: A JavaScript/TypeScript runtime build on JavaScript Core engine, and an all-in-one tool for building, testing, and deploying JavaScript applications.
+- **Node**: A Runtime built on `Chrome's V8 engine`, enabling JavaScript to run outside the browser.
+- **Deno**: A Runtime improving Node, focusing on security and developer experience.
+- **Bun**: A Runtime build on `JavaScriptCore Engine`, and all-in-one tool for building, testing, and deploying applications.
 
 
 ## 2. JavaScript Frameworks
@@ -33,12 +36,27 @@ On the server-side or on the command line, you can use JavaScript with the follo
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/200px-Vue.js_Logo_2.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
 </p>
 
-When building bigger web/mobile applications, developers use JavaScript frameworks to manage the complexity:
+### Overview
 
-* **React**: Developed by Facebook in 2013.
-* **React Native**: Developed by Facebook in 2015.
-* **Angular**: Developed by Google in 2010/2016.
-* **Vue**: Developed by Evan You in 2014.
+When building bigger web/mobile applications, developers use JavaScript frameworks to manage the complexity.
+
+### Browser
+
+- **React**: Developed by Facebook in 2013.
+- **Vue**: Developed by Evan You in 2014.
+- **Angular**: Developed by Google in 2010/2016.
+
+### Desktop
+
+- **Electron**: Developed by GitHub in 2013.
+
+### Mobile
+
+- **Ionic**: Developed by Drifty Co. in 2013.
+
+### Cross-Platform
+
+- **React Native**: Developed by Facebook in 2015.
 
 
 ## 3. Node and NPM

@@ -70,7 +70,6 @@ pi = 3.14159;  // ❌ Error: Assignment to constant variable
 
 ### Data Types
 
-
 In JavaScript, there exists two types of data types: `Primitive` and `Objects`.
 
 - **Primitive**: Single values like `string`, `number`, `boolean`
@@ -95,7 +94,7 @@ let person = { name: "Alice" };
 typeof person;  // "object"
 ```
 
-### Primitive Types
+### Primitives
  
 ![img.png](_assets/js-primitive-types.png)
 
@@ -132,7 +131,7 @@ let empty = null;           // Null
 typeof empty;               // "object"
 ```
 
-### Object Types
+### Objects
 
 In JavaScript `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
 
@@ -200,28 +199,6 @@ function greet(name) {
 function add(num1, num2) {
     return num1 + num2;
 }
-```
-
-### Arrays
-
-In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
-
-- **Creating Arrays**: An array is created using `[]` and by defining elements separated by `,`.
-
-```javascript
-const fruits = ["Apple", "Banana", "Cherry"];
-```
-
-* **Accessing Elements**: Using `[]` and the index.
-
-```javascript
-fruits[0];  // Access the first element, "Apple"
-```
-
-* **Updating Elements**: Using `=` and the index.
-
-```javascript
-fruits[0] = "Orange";  // Update the first element, to "Orange"
 ```
 
 ### Operators
@@ -325,4 +302,52 @@ const fruits = ["Apple", "Banana", "Cherry"];
 for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
 }
+```
+
+
+### Strings
+
+In JavaScript, `strings` are used to store and manipulate text.
+
+- **Creating Strings**: A string is created using `""` or `''`.
+
+```javascript
+const name = "Alice";
+const message = 'Hello, World!';
+```
+
+* **Concatenation**: Combining strings using the `+` operator.
+
+```javascript
+const greeting = "Hello, " + name;
+```
+
+* **Template Literals**: Using backticks to create strings with placeholders `${}`.
+
+```javascript
+const name = "Alice";
+const greeting = `Hello, ${name}`;
+```
+
+
+### Arrays
+
+In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
+
+- **Creating Arrays**: An array is created using `[]` and by defining elements separated by `,`.
+
+```javascript
+const fruits = ["Apple", "Banana", "Cherry"];
+```
+
+* **Accessing Elements**: Using `[]` and the index.
+
+```javascript
+fruits[0];  // Access the first element, "Apple"
+```
+
+* **Updating Elements**: Using `=` and the index.
+
+```javascript
+fruits[0] = "Orange";  // Update the first element, to "Orange"
 ```
