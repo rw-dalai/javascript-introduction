@@ -232,7 +232,9 @@ In JavaScript, to compare values by using `===` (strict equality) and `==` (loos
 10 === "10";                // false (strict equality)
 ```
 
-- **Number**: Converts a `string` to an `number`.
+### Type Conversion
+
+- **Number**: Converts a `string` to a `number`.
 
 In JavaScript, to convert a string to an integer by using the `Number` function.
 
@@ -251,23 +253,28 @@ In JavaScript, `NaN` is a special number produced when a `mathematical operation
 typeof NaN;                 // "number"
 ```
 
+- **Check for NaN**: Using the `isNaN` function.
+
+```javascript
+Number.isNaN(NaN);                 // true
+Number.isNaN(10);                  // false
+```
+
 - **Division by Zero**: Dividing a number by zero results in `NaN`.
 
 ```javascript
 let result = 10 / "apple";  // NaN
-typeof result;              // "number"
-```
-- **Invalid Number**: Converting an invalid number results in `NaN`.
-
-```JavaScript
-// User inputs `apple`
-let getNumber = prompt("Enter a number:");
-
-// Number("apple") returns `NaN`
-let number = Number(getNumber);
 
 // true
-number === NaN;
+Number.isNaN(number);
+```
+- **Converting not a Number**: Converting an invalid number results in `NaN`.
+
+```JavaScript
+let number = Number('apple'); // NaN
+
+// true
+Number.isNaN(number);
 ```
 
 ### If Statement
