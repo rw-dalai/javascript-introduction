@@ -304,7 +304,7 @@ Number.isNaN(result);           // true
 - **Converting not a Number**: Converting an invalid number results in `NaN`.
 
 ```JavaScript
-let result = Number('32px');    // NaN
+let result = Number('42px');    // NaN
 Number.isNaN(result);           // true
 ```
 
