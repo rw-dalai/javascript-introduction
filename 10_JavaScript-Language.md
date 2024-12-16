@@ -139,40 +139,22 @@ In JavaScript, `objects` are used to store an `unordered collection` of data as 
 - **Simple Objects**: An object is created using `{}` and by defining properties using `key: value` pairs.
 
 ```javascript
-const person = {
-    // Properties
-    name: "Ana",
-    age: 18,
-};
-```
-
-- **Objects with Methods**: A method in an object is created using a `key: value` pair where the value is a function.
-
-```javascript
-const person = {
-    // Properties
-    name: "Ana",
-    age: 18,
-    
-    // A Property that is a function
-    greet: function() {
-        return "Hello, " + this.name;
-    }
-};
+const person = { name: "Ana", age: 18 };
+typeof person;  // "object"
 ```
 
 - **Accessing Properties**: Using the `.` operator.
 
 ```javascript
-person.name;  // "Ana"
-person.greet();  // "Hello, Ana"
+person.name;                // "Ana"
 ```
 
 - **Updating Properties**: Using the `=` operator.
 
 ```javascript
-person.age = 19;  // Update age
+person.name = "Susi";       // Update
 ```
+
 
 ### Functions
 
@@ -184,6 +166,8 @@ In JavaScript, `functions` are used to perform a specific task or calculate a va
 function greet() {
     console.log("Hello, World!");
 }
+
+typeof greet;  // "function"
 ```
 
 - **Function with Parameters**: A function that takes input parameters and uses them inside the function.
@@ -232,15 +216,53 @@ In JavaScript, to compare values by using `===` (strict equality) and `==` (loos
 10 === "10";                // false (strict equality)
 ```
 
+### Type Coercion
+
+In JavaScript, `type coercion` is the automatic conversion of values from one data type to another.
+
+- **String Concatenation**: Converts a `number` to a `string`.
+
+```javascript
+let string = "42" + 42;     // "4242"
+typeof string;              // "string"
+```
+
+- **Postfix +/- Operator**: Converts a `string` to a `number`.
+
+```javascript
+let number = +"42";         // 42
+typeof number;              // "number"
+
+let negative = -"42";       // -42
+typeof negative;            // "number"
+```
+
 ### Type Conversion
 
-- **Number**: Converts a `string` to a `number`.
+In JavaScript, `type conversion` is the explicit conversion of a value from one data type to another.
 
-In JavaScript, to convert a string to an integer by using the `Number` function.
+- **Number Fn**: Converts a `string` to a `number`.
 
 ```javascript
 let number = Number("42");  // 42
 typeof number;              // "number"
+```
+
+- **parseInt Fn**: Converts a `string` to an `integer`.
+
+```javascript
+let integer = parseInt("42");  // 42
+typeof integer;                // "number"
+
+let pixels = parseInt("42px"); // 42
+typeof pixels;                 // "number"
+```
+
+- **String Fn**: Converts a `number` to a `string`.
+
+```javascript
+let string = String(42);    // "42"
+typeof string;              // "string"
 ```
 
 ### Not a Number (NaN)
@@ -393,4 +415,38 @@ const fruits = ["Apple", "Banana", "Cherry"];
 for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
 }
+```
+
+
+## 2. Advanced
+
+### Objects
+
+In JavaScript, `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
+
+- **Objects with Methods**: Objects can also have `methods` which are functions stored as properties.
+
+```javascript
+// 1. Create an object with a method
+const student = {
+
+    // Properties
+    name: "Ana",
+    age: 18,
+    
+    // Methods
+    greet: function() {
+        // `this` refers to the object
+        return "Hello, " + this.name;
+    },
+    
+    calculateAge: function() {
+        // `new Date` returns the current date
+        return new Date().getFullYear() - this.age;
+    }
+};
+
+// 2. Call the methods
+const greeting = student.greet();
+let age = student.calculateAge();
 ```
