@@ -271,9 +271,7 @@ let number = Number(getNumber);
 number === NaN;
 ```
 
-### Control Structures
-
-In JavaScript, control structures are used to control the flow of a program.
+### If Statement
 
 * **If-Else Statement**: Executes a block of code if a specified condition is `true`.
 
@@ -292,15 +290,24 @@ if (age >= 18) {
 }
 ```
 
+
+### For Statement
+
 * **For-Statement**: Loops through a block of code a number of times.
 
 ```javascript
-// Array of fruits
-const fruits = ["Apple", "Banana", "Cherry"];
+// Loop from 0 to 4
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+```
 
-// Loop through the array
-for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i]);
+* **Calling a Function**: Inside a for-loop.
+
+```javascript
+// Loop from 0 to 4
+for (let i = 0; i < 5; i++) {
+    greet("Alice");
 }
 ```
 
@@ -329,6 +336,13 @@ const name = "Alice";
 const greeting = `Hello, ${name}`;
 ```
 
+* **Length**: Returns the number of characters in a string.
+
+```javascript
+const name = "Alice";
+name.length;  // 5
+```
+
 
 ### Arrays
 
@@ -350,4 +364,22 @@ fruits[0];  // Access the first element, "Apple"
 
 ```javascript
 fruits[0] = "Orange";  // Update the first element, to "Orange"
+```
+
+* **Length**: Returns the number of elements in an array.
+
+```javascript
+fruits.length;  // 3
+```
+
+* **For-Statement**: Loops through an array of elements.
+
+```javascript
+// Array of fruits
+const fruits = ["Apple", "Banana", "Cherry"];
+
+// Loop through the array
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
 ```
