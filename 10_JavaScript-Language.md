@@ -256,8 +256,8 @@ typeof NaN;                 // "number"
 - **Check for NaN**: Using the `isNaN` function.
 
 ```javascript
-Number.isNaN(NaN);                 // true
-Number.isNaN(10);                  // false
+Number.isNaN(NaN);          // true
+Number.isNaN(10);           // false
 ```
 
 - **Division by Zero**: Dividing a number by zero results in `NaN`.
