@@ -58,7 +58,7 @@ In JavaScript, variables are declared using `let` and `const`.
 
 ```javascript
 let name = "Alice";
-name = "Bob"; // ✅ OK: Reassigning the variable
+name = "Bob";  // ✅ OK: Reassigning the variable
 ```
 
 - **const**: Immutable variable that cannot be reassigned.
@@ -72,16 +72,16 @@ pi = 3.14159;  // ❌ Error: Assignment to constant variable
 
 In JavaScript, there exists two types of data types: `Primitive` and `Objects`.
 
-- **Primitive**: Single values like `string`, `number`, `boolean`
+- **Primitives**: e.g. `string`
 
 ```javascript
-let name = "Alice";  // String
+let name = "Alice";
 ```
 
-- **Objects**: Complex data structures like `arrays`, `functions`, `objects`
+- **Objects**: Complex data structures e.g. `arrays`, `functions`, `objects`
 
 ```javascript
-let person = { name: "Alice" };  // Object
+let person = { name: "Alice" };
 ```
 
 - **typeof**: Returns the type of a variable as a `string`.
@@ -101,35 +101,35 @@ In JavaScript, `primitive` data types are immutable in the sense that they canno
 
 - **Number**: Numeric data type
 ```javascript
-let number = 42;            // Number
-typeof number;              // "number"
+let number = 42;                // 42
+typeof number;                  // "number"
 
-let pi = 3.14;              // Number
-typeof pi;                  // "number"
+let pi = 3.14;                  // 3.14
+typeof pi;                      // "number"
 ```
 
 - **String**: Textual data type
 ```javascript
-let name = "Rene";          // String
-typeof name;                // "string"
+let name = "Rene";              // "Rene"
+typeof name;                    // "string"
 ```
 
 - **Boolean**: Logical data type
 ```javascript
-let turnedOn = true;        // Boolean
-typeof turnedOn;            // "boolean"
+let turnedOn = true;            // true
+typeof turnedOn;                // "boolean"
 ```
 
 - **Undefined**: Default value of uninitialized variables
 ```javascript
-let value;                  // Undefined
-typeof value;               // "undefined"
+let value;                      // undefined
+typeof value;                   // "undefined"
 ```
 
 - **Null**: Represents an intentional absence of any value
 ```javascript
-let empty = null;           // Null
-typeof empty;               // "object"
+let empty = null;               // null
+typeof empty;                   // "object"
 ```
 
 ### Objects
@@ -140,19 +140,25 @@ In JavaScript, `objects` are used to store an `unordered collection` of data as 
 
 ```javascript
 const person = { name: "Ana", age: 18 };
-typeof person;  // "object"
+typeof person;                  // "object"
 ```
 
 - **Accessing Properties**: Using the `.` operator.
 
 ```javascript
-person.name;                // "Ana"
+person.name;                    // "Ana"
 ```
 
 - **Updating Properties**: Using the `=` operator.
 
 ```javascript
-person.name = "Susi";       // Update
+person.name = "Susi";           // "Susi"
+```
+
+- **Accessing non-existing Properties**: Returns `undefined`.
+
+```javascript
+person.city;                    // undefined
 ```
 
 
@@ -167,7 +173,7 @@ function greet() {
     console.log("Hello, World!");
 }
 
-typeof greet;  // "function"
+typeof greet; // "function"
 ```
 
 - **Function with Parameters**: A function that takes input parameters and uses them inside the function.
@@ -193,17 +199,17 @@ In JavaScript, `operators` are used to perform operations on variables and value
 - **Arithmetic Operators**: `+`, `-`, `*`, `/`
 
 ```javascript
-let sum = 10 + 5;           // 15
-let difference = 10 - 5;    // 5
-let product = 10 * 5;       // 50
-let quotient = 10 / 5;      // 2
+let sum = 10 + 5;               // 15
+let difference = 10 - 5;        // 5
+let product = 10 * 5;           // 50
+let quotient = 10 / 5;          // 2
 ```
 
 - **Assignment Operators**: `=`, `+=`, `-=`, `*=`, `/=`
 
 ```javascript
 let number = 10;
-number += 5;                // number = number + 5
+number += 5;                    // number = number + 5
 ```
 
 - **Loose vs Strict Equality**: `==`, `===`
@@ -211,9 +217,9 @@ number += 5;                // number = number + 5
 In JavaScript, to compare values by using `===` (strict equality) and `==` (loose equality).
 
 ```javascript
-10 == 10;                   // true (loose equality)
-10 == "10";                 // true (loose equality)
-10 === "10";                // false (strict equality)
+10 == 10;                       // true (loose equality)
+10 == "10";                     // true (loose equality)
+10 === "10";                    // false (strict equality)
 ```
 
 ### Type Coercion
@@ -223,46 +229,53 @@ In JavaScript, `type coercion` is the automatic conversion of values from one da
 - **String Concatenation**: Converts a `number` to a `string`.
 
 ```javascript
-let string = "42" + 42;     // "4242"
-typeof string;              // "string"
+let string = "42" + 42;         // "4242"
+typeof string;                  // "string"
 ```
 
 - **Postfix +/- Operator**: Converts a `string` to a `number`.
 
 ```javascript
-let number = +"42";         // 42
-typeof number;              // "number"
+let number = +"42";             // 42
+typeof number;                  // "number"
 
-let negative = -"42";       // -42
-typeof negative;            // "number"
+let negative = -"42";           // -42
+typeof negative;                // "number"
 ```
 
 ### Type Conversion
 
 In JavaScript, `type conversion` is the explicit conversion of a value from one data type to another.
 
-- **Number Fn**: Converts a `string` to a `number`.
+- **Number Fn**: Converts an integer-based `string` to a `number`.
+
+*Not forgiving*: If the string is not a valid integer, it returns `NaN`.
 
 ```javascript
-let number = Number("42");  // 42
-typeof number;              // "number"
+let number = Number("42");      // 42
+typeof number;                  // "number"
+
+let pixel = Number("42px");     // NaN
+typeof pixel;                   // "number"
 ```
 
-- **parseInt Fn**: Converts a `string` to an `integer`.
+- **parseInt Fn**: Converts an integer-based `string` to a `number`.
+
+*Forgiving*: If the string is not a valid integer, it returns the integer part.
 
 ```javascript
-let integer = parseInt("42");  // 42
-typeof integer;                // "number"
+let number = parseInt("42");    // 42
+typeof number;                  // "number"
 
-let pixels = parseInt("42px"); // 42
-typeof pixels;                 // "number"
+let pixel = parseInt("42px");   // 42
+typeof pixel;                   // "number"
 ```
 
 - **String Fn**: Converts a `number` to a `string`.
 
 ```javascript
-let string = String(42);    // "42"
-typeof string;              // "string"
+let string = String(42);        // "42"
+typeof string;                  // "string"
 ```
 
 ### Not a Number (NaN)
@@ -272,31 +285,27 @@ In JavaScript, `NaN` is a special number produced when a `mathematical operation
 - **NaN**: is technically a `number`.
 
 ```javascript
-typeof NaN;                 // "number"
+typeof NaN;                     // "number"
 ```
 
 - **Check for NaN**: Using the `isNaN` function.
 
 ```javascript
-Number.isNaN(NaN);          // true
-Number.isNaN(10);           // false
+Number.isNaN(NaN);              // true
+Number.isNaN(10);               // false
 ```
 
 - **Division by Zero**: Dividing a number by zero results in `NaN`.
 
 ```javascript
-let result = 10 / "apple";  // NaN
-
-// true
-Number.isNaN(number);
+let result = 10 / "apple";      // NaN
+Number.isNaN(result);           // true
 ```
 - **Converting not a Number**: Converting an invalid number results in `NaN`.
 
 ```JavaScript
-let number = Number('apple'); // NaN
-
-// true
-Number.isNaN(number);
+let result = Number('32px');    // NaN
+Number.isNaN(result);           // true
 ```
 
 ### If Statement
