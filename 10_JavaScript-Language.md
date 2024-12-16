@@ -315,15 +315,6 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-- **Loop over a function**: Call a function multiple times.
-
-```javascript
-// Call the greet function 3 times
-for (let i = 0; i < 3; i++) {
-    greet("Alice");
-}
-```
-
 
 ### Strings
 
