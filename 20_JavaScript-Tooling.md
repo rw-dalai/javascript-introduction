@@ -7,7 +7,7 @@
 ### Overview
 JavaScript is an interpreted language and needs a `Host Environment` aka `JavaScript Runtime` to execute the code.
 
-- **JavaScript Runtime**: Includes the JavaScript Engine, Web APIs, and other tools to run JavaScript code.
+- **JavaScript Runtime**: Includes the JavaScript Engine, Web APIs, Input/Output, File System, and more.
 - **JavaScript Engine**: The core component that interprets and executes the JavaScript code.
 
 ### Browser

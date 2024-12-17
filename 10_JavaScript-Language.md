@@ -140,25 +140,25 @@ In JavaScript, `objects` are used to store an `unordered collection` of data as 
 
 ```javascript
 const person = { name: "Ana", age: 18 };
-typeof person;                  // "object"
+typeof person;  // "object"
 ```
 
 - **Accessing Properties**: Using the `.` operator.
 
 ```javascript
-person.name;                    // "Ana"
+person.name;  // "Ana"
 ```
 
 - **Updating Properties**: Using the `=` operator.
 
 ```javascript
-person.name = "Susi";           // "Susi"
+person.name = "Susi";
 ```
 
 - **Accessing non-existing Properties**: Returns `undefined`.
 
 ```javascript
-person.city;                    // undefined
+person.city;  // undefined
 ```
 
 
@@ -308,12 +308,14 @@ let result = Number('42px');    // NaN
 Number.isNaN(result);           // true
 ```
 
-### If Statement
+### Conditional Statements
 
-In JavaScript, the `if` statement is used to execute a block of code if a specified condition is `true`.
+In JavaScript, `conditional statements` are used to perform different actions based on different conditions.
 
 
-- **If Statement**: Executes a block of code if the condition is `true`.
+- **If Statement**:
+
+Executes a block of code if the condition is `true`. Otherwise, it skips the block.
 
 ```javascript
 // Check if age is greater or equal to 18
@@ -322,7 +324,9 @@ if (age >= 18) {
 }
 ```
 
-- **If-Else Statement**: Executes a block of code if the condition is `true`, otherwise executes another block of code.
+- **If-Else Statement**:
+
+Executes a block of code if the condition is `true`, otherwise executes another block of code.
 
 ```javascript
 // Prompt the user for their age
@@ -340,11 +344,13 @@ if (age >= 18) {
 ```
 
 
-### For Statement
+### Iteration Statements
 
-In JavaScript, the `for` statement is used to execute a block of code a number of times.
+In JavaScript, `iteration statements` are used to execute a block of code multiple times.
 
-- **For-Statement**: Call a block of code multiple times.
+- **For-Statement**:
+
+Call a block of code multiple times. `for (initialization; condition; increment) { ... }`
 
 ```javascript
 // Loop from 0 to 4
@@ -356,13 +362,20 @@ for (let i = 0; i < 5; i++) {
 
 ### Strings
 
-In JavaScript, `strings` are used to store and manipulate text.
+In JavaScript, `strings` are used to store and manipulate Unicode text. Unicode can represent any character in the world, even emojis 😍.
 
 - **Creating Strings**: A string is created using `""` or `''`.
 
 ```javascript
 const name = "Alice";
 const message = 'Hello, World!';
+```
+
+- **Length**: The length property returns the number of characters.
+
+```javascript
+const name = "Alice";
+name.length;  // 5
 ```
 
 - **Concatenation**: Combining strings using the `+` operator.
@@ -378,49 +391,43 @@ const name = "Alice";
 const greeting = `Hello, ${name}`;
 ```
 
-- **Length**: Returns the number of characters in a string.
-
-```javascript
-const name = "Alice";
-name.length;  // 5
-```
-
 
 ### Arrays
 
 In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
 
-- **Creating Arrays**: An array is created using `[]` and by defining elements separated by `,`.
+- **Creating Arrays**: Using `[]` and a list of elements.
 
 ```javascript
 const fruits = ["Apple", "Banana", "Cherry"];
+typeof fruits;  // "object"
 ```
 
-- **Accessing Elements**: Using `[]` and the index.
-
-```javascript
-fruits[0];  // Access the first element, "Apple"
-```
-
-- **Updating Elements**: Using `=` and the index.
-
-```javascript
-fruits[0] = "Orange";  // Update the first element, to "Orange"
-```
-
-- **Length**: Returns the number of elements in an array.
+- **Length**: The length property returns the number of elements.
 
 ```javascript
 fruits.length;  // 3
 ```
 
-- **Looping over an array**: Using a `for` loop and the `length` property.
+- **Accessing Elements**: Using the `Bracket Notation` `[]` and the index.
+
+```javascript
+fruits[0];  // Access the first element, "Apple"
+```
+
+- **Updating Elements**: Using the `Bracket Notation` `[]` and the index.
+
+```javascript
+fruits[0] = "Orange";  // Update the first element, to "Orange"
+```
+
+- **Iterate over an array**: Using `for` and the `length` property.
 
 ```javascript
 // Array of fruits
 const fruits = ["Apple", "Banana", "Cherry"];
 
-// Loop through the array
+// Iterate over the array
 for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
 }
@@ -433,29 +440,68 @@ for (let i = 0; i < fruits.length; i++) {
 
 In JavaScript, `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
 
-- **Objects with Methods**: Objects can also have `methods` which are functions stored as properties.
+- **Objects with Methods**:
+
+Objects can also have properties that are functions, called `methods`. This methods can access the object using `this`.
 
 ```javascript
-// 1. Create an object with a method
 const student = {
-
-    // Properties
+    // Properties with primitive values
     name: "Ana",
     age: 18,
     
-    // Methods
+    // Property with a function (aka method)
     greet: function() {
         // `this` refers to the object
-        return "Hello, " + this.name;
+        return `Hello, ${this.name}`;
     },
     
+    // Property with a function (aka method)
     calculateAge: function() {
         // `new Date` returns the current date
         return new Date().getFullYear() - this.age;
     }
 };
+```
 
-// 2. Call the methods
-const greeting = student.greet();
-let age = student.calculateAge();
+- **Accessing Properties**:
+
+Properties can be accessed using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
+
+```javascript
+student.name;                   // "Ana"
+student["name"];
+typeof student.name;            // "string"
+
+student.greet                   // function greet(greeting) { ... }
+student["greet"]
+typeof student.greet;           // "function"
+```
+
+- **Accessing non-existing Properties**:
+
+Accessing a non-existing property returns `undefined`.
+
+```javascript
+student.city;                    // undefined
+student["city"];
+```
+
+- **Calling Methods**:
+
+Accessing a property and calling it with `()` executes the function (aka method).
+
+```javascript
+student.greet();                 // "Hello, Ana"
+student["greet"]();
+```
+
+
+- **Calling non-existing Methods**:
+
+Accessing a non-existing property and calling it with `()` results in an error.
+
+```javascript
+student.walk                     // undefined
+student.walk();                  // ❌ Error: student.walk is not a function
 ```
