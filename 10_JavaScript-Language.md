@@ -136,7 +136,7 @@ typeof empty;                   // "object"
 
 In JavaScript, `objects` are used to store an `unordered collection` of data as `properties`.
 
-- **Creating Objects**: Using `{}` and defining its properties by `key: value` pairs.
+- **Create an Object**: Using `{}` and defining its properties by `key: value` pairs.
 
 ```javascript
 const person = { name: "Ana", age: 18 };
@@ -364,7 +364,7 @@ for (let i = 0; i < 5; i++) {
 
 In JavaScript, `strings` are used to store and manipulate Unicode text. Unicode can represent any character in the world, even emojis 😍.
 
-- **Creating Strings**: Using `""` or `''`.
+- **Create a String**: Using `""` or `''`.
 
 ```javascript
 const name = "Alice";
@@ -396,7 +396,7 @@ const greeting = `Hello, ${name}`;
 
 In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
 
-- **Creating Arrays**: Using `[]` and a list of elements.
+- **Create an Array**: Using `[]` and a list of elements.
 
 ```javascript
 const fruits = ["Apple", "Banana", "Cherry"];
