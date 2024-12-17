@@ -134,9 +134,9 @@ typeof empty;                   // "object"
 
 ### Objects
 
-In JavaScript, `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
+In JavaScript, `objects` are used to store an `unordered collection` of data as `properties`.
 
-- **Simple Objects**: An object is created using `{}` and by defining properties using `key: value` pairs.
+- **Creating Objects**: Using `{}` and defining its properties by `key: value` pairs.
 
 ```javascript
 const person = { name: "Ana", age: 18 };
@@ -166,7 +166,7 @@ person.city;  // undefined
 
 In JavaScript, `functions` are used to perform a specific task or calculate a value.
 
-- **Simple Function**: A function that does not take any input parameters.
+- **Create a Function**: Using the `function` keyword. `function name() { ... }`
 
 ```javascript
 function greet() {
@@ -176,7 +176,7 @@ function greet() {
 typeof greet; // "function"
 ```
 
-- **Function with Parameters**: A function that takes input parameters and uses them inside the function.
+- **with Parameters**: A function that accepts `parameters`.
 
 ```javascript
 function greet(name) {
@@ -184,7 +184,7 @@ function greet(name) {
 }
 ```
 
-- **Function with Return Value**: A function that returns a value using the `return` keyword.
+- **with Return Value**: A function that returns a value using the `return` keyword.
 
 ```javascript
 function add(num1, num2) {
@@ -364,7 +364,7 @@ for (let i = 0; i < 5; i++) {
 
 In JavaScript, `strings` are used to store and manipulate Unicode text. Unicode can represent any character in the world, even emojis 😍.
 
-- **Creating Strings**: A string is created using `""` or `''`.
+- **Creating Strings**: Using `""` or `''`.
 
 ```javascript
 const name = "Alice";
@@ -438,30 +438,14 @@ for (let i = 0; i < fruits.length; i++) {
 
 ### Objects
 
-In JavaScript, `objects` are used to store an `unordered collection` of data as key-value pairs called `properties`.
+In JavaScript, `objects` are used to store an `unordered collection` of data called `properties`.
 
-- **Objects with Methods**:
+- **Key-Value Pairs**:
 
-Objects can also have properties that are functions, called `methods`. This methods can access the object using `this`.
+Properties consist of key-value pairs. Keys are `strings` and values can be any data type (e.g. `string`, `number`, `boolean` or `object`).
 
 ```javascript
-const student = {
-    // Properties with primitive values
-    name: "Ana",
-    age: 18,
-    
-    // Property with a function (aka method)
-    greet: function() {
-        // `this` refers to the object
-        return `Hello, ${this.name}`;
-    },
-    
-    // Property with a function (aka method)
-    calculateAge: function() {
-        // `new Date` returns the current date
-        return new Date().getFullYear() - this.age;
-    }
-};
+const person = { name: "Alice", age: 18 };
 ```
 
 - **Accessing Properties**:
@@ -469,13 +453,11 @@ const student = {
 Properties can be accessed using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
 
 ```javascript
-student.name;                   // "Ana"
-student["name"];
-typeof student.name;            // "string"
+student.name;                   // Dot Notation
+student["name"];                // Bracket Notation uses a string
 
-student.greet                   // function greet(greeting) { ... }
-student["greet"]
-typeof student.greet;           // "function"
+const property = "name";
+student[property];              // Bracket Notation with a variable
 ```
 
 - **Accessing non-existing Properties**:
@@ -485,6 +467,56 @@ Accessing a non-existing property returns `undefined`.
 ```javascript
 student.city;                    // undefined
 student["city"];
+```
+
+- **Updating Properties**:
+
+Properties can be updated using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
+
+```javascript
+student.name = "Bob";           // Dot Notation
+student["name"] = "Bob";        // Bracket Notation
+
+const property = "name";
+student[property] = "Bob";      // Bracket Notation with a variable
+```
+
+- **Adding Properties**:
+
+Properties can be added to an object using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
+
+```javascript
+student.city = "New York";       // Dot Notation
+student["city"] = "New York";    // Bracket Notation
+```
+
+- **Deleting Properties**:
+
+Properties can be deleted using the `delete` operator.
+
+```javascript
+delete student.name;
+```
+
+
+### Object Methods
+
+- **Methods**:
+
+Objects can have properties that are functions, called `methods`. The methods can access the object using `this`.
+
+```javascript
+const student = {
+    // Properties with primitive values
+    name: "Ana",
+    age: 18,
+    
+    // Property is a function (aka method)
+    greet: function() {
+        // `this` refers to the object
+        return `Hello, ${this.name}`;
+    },
+};
 ```
 
 - **Calling Methods**:
@@ -504,4 +536,33 @@ Accessing a non-existing property and calling it with `()` results in an error.
 ```javascript
 student.walk                     // undefined
 student.walk();                  // ❌ Error: student.walk is not a function
+```
+
+### Object Nesting
+
+- **Key-Value Pairs**:
+
+Properties consist of key-value pairs. Keys are `strings` and values can be any data type even another `object`.
+
+```javascript
+const person = {
+    // Properties with primitive values
+    name: "Alice",
+    age: 18,
+
+    // Property is an object
+    address: {
+        city: "New York",
+        zip: 10001,
+    },
+};
+```
+
+- **Accessing Nested Properties**:
+
+Using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
+
+```javascript
+person.address.city;             // "New York"
+person["address"]["city"];       // "New York"
 ```
