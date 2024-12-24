@@ -436,9 +436,6 @@ for (let i = 0; i < fruits.length; i++) {
 }
 ```
 
-
-## 2. Advanced
-
 ### Truthy and Falsy
 
 In JavaScript, `truthy` and `falsy` values are used to determine the `boolean` value of an expression.
@@ -486,6 +483,9 @@ function greet(name) {
     return `Hello, ${name}`;
 }
 ```
+
+
+## 2. Advanced
 
 ### Objects
 
