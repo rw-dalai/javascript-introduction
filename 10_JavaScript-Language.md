@@ -468,14 +468,17 @@ for (let fruit of fruits) {
 
 ### Truthy and Falsy
 
-In JavaScript, if a value is used in a `Boolean Context`, it is coerced to a `boolean` value thus considered `truthy` or `falsy`.
+In JavaScript, if a `value` is used in a `Boolean Context`, it is coerced to a `boolean`, thereby becoming `truthy` or `falsy`.
 
 
 - **Boolean Context**: Using `if`, `while`, `for`, `&&`, `||`, `!`.
 
 ```javascript
-if (0) { console.log("Falsy"); }  // logs nothing
-if (42) { console.log("Truthy"); }  // logs "Truthy"
+// Using the `if` statement to check if a value is `truthy`
+if (value) { /* .. */ }
+
+// Using the `||` operator as a default value guard
+const defaultValue = value || "default";
 ```
 
 - **Falsy Values**: `false`, `0`, `""`, `null`, `undefined`, `NaN`
@@ -513,7 +516,7 @@ function greet(name) {
 }
 ```
 
-- **Logical Operator**: Using `||` to return a default value.
+- **Logical Operator**: Using `||` as a default value guard for `undefined` or `null`.
 
 ```javascript
 function greet(name) {
