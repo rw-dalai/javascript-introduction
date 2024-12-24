@@ -45,7 +45,7 @@ alert("Hello, World!");
 
 - **Prompt (browser only)**: A built-in function that displays a dialog box for user input `in the browser`.
 ```javascript
-let name = prompt("Enter your name:");
+const name = prompt("Enter your name:");
 alert("Hello, " + name);
 ```
 
@@ -57,7 +57,7 @@ In JavaScript, variables are declared using `let` and `const`.
 - **let**: Mutable variable that can be reassigned.
 
 ```javascript
-let name = "Alice";
+const name = "Alice";
 name = "Bob";  // ✅ OK: Reassigning the variable
 ```
 
@@ -75,22 +75,22 @@ In JavaScript, there exists two types of data types: `Primitive` and `Objects`.
 - **Primitives**: e.g. `string`
 
 ```javascript
-let name = "Alice";
+const name = "Alice";
 ```
 
 - **Objects**: Complex data structures e.g. `arrays`, `functions`, `objects`
 
 ```javascript
-let person = { name: "Alice" };
+const person = { name: "Alice" };
 ```
 
 - **typeof**: Returns the type of a variable as a `string`.
 
 ```javascript
-let name = "Alice";
+const name = "Alice";
 typeof name;  // "string"
 
-let person = { name: "Alice" };
+const person = { name: "Alice" };
 typeof person;  // "object"
 ```
 
@@ -101,26 +101,26 @@ In JavaScript, `primitive` data types are immutable in the sense that they canno
 
 - **Number**: Numeric data type
 ```javascript
-let number = 42;                // 42
+const number = 42;                // 42
 typeof number;                  // "number"
 
-let pi = 3.14;                  // 3.14
+const pi = 3.14;                  // 3.14
 typeof pi;                      // "number"
 ```
 
 - **String**: Textual data type
 ```javascript
-let name = "Rene";              // "Rene"
+const name = "Rene";              // "Rene"
 typeof name;                    // "string"
 ```
 
 - **Boolean**: Logical data type
 ```javascript
-let turnedOn = true;            // true
+const turnedOn = true;            // true
 typeof turnedOn;                // "boolean"
 ```
 
-- **Undefined**: Default value of uninitialized variables
+- **Undefined**: Default value of uninitialized `let` declarations.
 ```javascript
 let value;                      // undefined
 typeof value;                   // "undefined"
@@ -139,8 +139,8 @@ In JavaScript, `strings` are used to store and manipulate text which can be any 
 - **Unicode**: A standard for encoding, representing, and handling text in any language in the world.
 
 ```javascript
-let emoji = "🚀";                // "🚀"
-let chinese = "你好";            // "Hallo"
+const emoji = "🚀";                // "🚀"
+const chinese = "你好";            // "Hallo"
 ```
 
 - **Create a String**: Using `""` or `''`.
@@ -177,16 +177,16 @@ In JavaScript, `operators` are used to perform operations on variables and value
 - **Arithmetic Operators**: `+`, `-`, `*`, `/`
 
 ```javascript
-let sum = 10 + 5;               // 15
-let difference = 10 - 5;        // 5
-let product = 10 * 5;           // 50
-let quotient = 10 / 5;          // 2
+const sum = 10 + 5;               // 15
+const difference = 10 - 5;        // 5
+const product = 10 * 5;           // 50
+const quotient = 10 / 5;          // 2
 ```
 
 - **Assignment Operators**: `=`, `+=`, `-=`, `*=`, `/=`
 
 ```javascript
-let number = 10;
+const number = 10;
 number += 5;                    // number = number + 5
 ```
 
@@ -213,15 +213,15 @@ In JavaScript, `type coercion` is the automatic conversion of values from one da
 - **String Context**: Converts a `value` to a `string`.
 
 ```javascript
-let string1 = "42" + 42;         // "4242"
-let string2 = 42 + "";           // "42"
+const string1 = "42" + 42;         // "4242"
+const string2 = 42 + "";           // "42"
 ```
 
 - **Number Context**: Converts a `value` to a `number`.
 
 ```javascript
-let number1 = +"42";             // 42
-let number2 = "42" * 2           // 84
+const number1 = +"42";             // 42
+const number2 = "42" * 2           // 84
 ```
 
 - **Boolean Context**: Converts a `value` to a `boolean`.
@@ -229,8 +229,8 @@ let number2 = "42" * 2           // 84
 In JavaScript, certain values are `falsy` and `truthy`. [Full Explanation](#truthy-and-falsy).
 
 ```javascript
-let boolean = !!"";              // Converts to false
-let boolean = !!"Hello"          // Converts to true
+const boolean1 = !!"";              // Converts to false
+const boolean2 = !!"Hello"          // Converts to true
 ```
 
 ### Type Conversion
@@ -240,7 +240,7 @@ In JavaScript, `type conversion` is the explicit conversion of a value from one 
 - **String Fn**: Converts a `number` to a `string`.
 
 ```javascript
-let string = String(42);        // "42"
+const string = String(42);        // "42"
 typeof string;                  // "string"
 ```
 
@@ -249,10 +249,10 @@ typeof string;                  // "string"
 *Not forgiving*: If the string is not a valid integer, it returns `NaN`.
 
 ```javascript
-let number = Number("42");      // 42
+const number = Number("42");      // 42
 typeof number;                  // "number"
 
-let pixel = Number("42px");     // NaN
+const pixel = Number("42px");     // NaN
 typeof pixel;                   // "number"
 ```
 
@@ -261,10 +261,10 @@ typeof pixel;                   // "number"
 *Forgiving*: If the string is not a valid integer, it returns the `integer part`.
 
 ```javascript
-let number = parseInt("42");    // 42
+const number = parseInt("42");    // 42
 typeof number;                  // "number"
 
-let pixel = parseInt("42px");   // 42
+const pixel = parseInt("42px");   // 42
 typeof pixel;                   // "number"
 ```
 
@@ -273,7 +273,7 @@ typeof pixel;                   // "number"
 In JavaScript, certain values are `falsy` and `truthy`. [Full Explanation](#truthy-and-falsy).
 
 ```javascript
-let boolean = Boolean(42);      // true
+const boolean = Boolean(42);      // true
 typeof boolean;                 // "boolean"
 ```
 
@@ -297,13 +297,13 @@ Number.isNaN(10);               // false
 - **Division by Zero**: Dividing a number by zero results in `NaN`.
 
 ```javascript
-let result = 10 / "apple";      // NaN
+const result = 10 / "apple";      // NaN
 Number.isNaN(result);           // true
 ```
 - **Converting not a Number**: Converting an invalid number results in `NaN`.
 
 ```JavaScript
-let result = Number('42px');    // NaN
+const result = Number('42px');    // NaN
 Number.isNaN(result);           // true
 ```
 
@@ -466,6 +466,9 @@ for (let fruit of fruits) {
 }
 ```
 
+
+## 2. Advanced
+
 ### Truthy and Falsy
 
 In JavaScript, if a `value` is used in a `Boolean Context`, it is coerced to a `boolean`, thereby becoming `truthy` or `falsy`.
@@ -564,9 +567,6 @@ if (!value) {
     // value is `false`, `0`, `""`, `null`, `undefined`, `NaN`
 }
 ```
-
-
-## 2. Advanced
 
 ### Objects
 
