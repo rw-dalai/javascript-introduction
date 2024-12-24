@@ -270,21 +270,21 @@ In JavaScript, to compare values by using `===` (strict equality) and `==` (loos
 
 In JavaScript, `type coercion` is the automatic conversion of values from one data type to another.
 
-- **String Operation**: Converts a `value` to a `string`.
+- **String Context**: Converts a `value` to a `string`.
 
 ```javascript
 let string1 = "42" + 42;         // "4242"
 let string2 = true + "42";       // "42true"
 ```
 
-- **Number Operation**: Converts a `value` to a `number`.
+- **Number Context**: Converts a `value` to a `number`.
 
 ```javascript
 let number1 = +"42";             // 42
-let number2 = "42" *2            // 84
+let number2 = "42" * 2           // 84
 ```
 
-- **Boolean Operation**: Converts a `value` to a `boolean`.
+- **Boolean Context**: Converts a `value` to a `boolean`.
 
 In JavaScript, certain values are `falsy` and `truthy`. See end of this section for more details.
 
@@ -451,9 +451,16 @@ for (let i = 0; i < fruits.length; i++) {
 
 ### Truthy and Falsy
 
-In JavaScript, `truthy` and `falsy` values are used to determine the `boolean` value of an expression.
+In JavaScript, if a value is used in a `boolean context`, it is considered `truthy` or `falsy`.
 
 https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+- **Boolean Context**: Using `if`, `while`, `for`, `&&`, `||`, `!`.
+
+```javascript
+if (0) { console.log("Falsy"); }  // logs nothing
+if (42) { console.log("Truthy"); }  // logs "Truthy"
+```
 
 - **Falsy Values**: false, 0, "", null, undefined, NaN
 
@@ -466,7 +473,7 @@ Boolean("");                // false
 
 ```javascript
 Boolean(42);                // true
-Boolean([]);                // true
+Boolean("Hello");           // true
 ```
 
 - **Coercion**: Using `!!` to convert a value to a boolean.
