@@ -1,6 +1,6 @@
 # JavaScript Questions and Exercises
 
-## Basics
+## Conceptual Questions
 
 - **Q1.** What is the difference between `let`, `const` JavaScript?
 - **Q2.** What is the difference between `==` and `===` in JavaScript?
@@ -15,6 +15,23 @@
 - **Q11.** Can a function return `undefined`? If so, how?
 - **Q12.** What is `NaN` in JavaScript?
 - **Q13.** How to convert a `string` to a `number` in JavaScript?
+
+
+## Strings
+
+- **E1.** Create a string using `string concatenation` with the following message:
+    - `Hello, my name is <your name>`.
+    - **Test 1** Log the string to the console.
+
+
+- **E2.** Create a string using `template literal` with the following message:
+    - `Hello, my name is <your name>`.
+    - **Test 1** Log the string to the console.
+
+
+- **E3.** Create a string in an exotic language and check the length of the string.
+    - **Test 1** Log the string to the console.
+    - **Test 2** Log the length of the string to the console.
 
 ## Objects
 
@@ -89,7 +106,7 @@
     - **Test 2** Call the function and provide an invalid number and log the result to the console.
 
 
-- **E7 🤩.** Extend the `getNumberFromUser`function that loops until the user enters a valid number.
+- **E7 🤩.** Extend the `getNumberFromUser`function that **loops** until the user enters a valid number.
     - The function should keep prompting the user to enter a number until a valid number is entered.
 
 

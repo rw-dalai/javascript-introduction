@@ -132,6 +132,44 @@ let empty = null;               // null
 typeof empty;                   // "object"
 ```
 
+### Strings
+
+In JavaScript, `strings` are used to store and manipulate text which can be any character in the Unicode character set.
+
+- **Unicode**: A standard for encoding, representing, and handling text in any language in the world.
+
+```javascript
+let emoji = "🚀";                // "🚀"
+let chinese = "你好";            // "Hallo"
+```
+
+- **Create a String**: Using `""` or `''`.
+
+```javascript
+const name = "Alice";
+const message = 'Hello, World!';
+```
+
+- **Length**: The length property returns the number of characters.
+
+```javascript
+const name = "Alice";
+name.length;  // 5
+```
+
+- **Concatenation**: Combining strings using the `+` operator.
+
+```javascript
+const greeting = "Hello, " + name;
+```
+
+- **Template Literals**: Using backticks to create strings with placeholders `${}`.
+
+```javascript
+const name = "Alice";
+const greeting = `Hello, ${name}`;
+```
+
 ### Objects
 
 In JavaScript, `objects` are used to store an `unordered collection` of data as `properties`.
@@ -308,37 +346,6 @@ let result = Number('42px');    // NaN
 Number.isNaN(result);           // true
 ```
 
-### Strings
-
-In JavaScript, `strings` are used to store and manipulate Unicode text. Unicode can represent any character in the world, even emojis 😍.
-
-- **Create a String**: Using `""` or `''`.
-
-```javascript
-const name = "Alice";
-const message = 'Hello, World!';
-```
-
-- **Length**: The length property returns the number of characters.
-
-```javascript
-const name = "Alice";
-name.length;  // 5
-```
-
-- **Concatenation**: Combining strings using the `+` operator.
-
-```javascript
-const greeting = "Hello, " + name;
-```
-
-- **Template Literals**: Using backticks to create strings with placeholders `${}`.
-
-```javascript
-const name = "Alice";
-const greeting = `Hello, ${name}`;
-```
-
 ### Conditional Statements
 
 In JavaScript, `conditional statements` are used to perform different actions based on different conditions.
@@ -431,6 +438,54 @@ for (let i = 0; i < fruits.length; i++) {
 
 
 ## 2. Advanced
+
+### Truthy and Falsy
+
+In JavaScript, `truthy` and `falsy` values are used to determine the `boolean` value of an expression.
+
+https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+- **Falsy Values**: false, 0, "", null, undefined, NaN
+
+```javascript
+Boolean(0);                 // false
+Boolean("");                // false
+```
+
+- **Truthy Values**: all values that are not falsy.
+
+```javascript
+Boolean(42);                // true
+Boolean([]);                // true
+```
+
+- **Coercion**: Using `!!` to convert a value to a boolean.
+
+```javascript
+!!"";                       // false
+!![];                       // true
+```
+
+- **If-Statement**: Using `if` to check if a value is `truthy` or `falsy`.
+
+```javascript
+function greet(name) {
+    if (name) {
+        return `Hello, ${name}`;
+    } else {
+        return "Hello, World";
+    }
+}
+```
+
+- **Short-Circuit Evaluation**: Using `||` to return the first `truthy` value.
+
+```javascript
+function greet(name) {
+    name = name || "World";
+    return `Hello, ${name}`;
+}
+```
 
 ### Objects
 
