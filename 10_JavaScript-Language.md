@@ -417,13 +417,15 @@ person.name = "Susi";
 
 - **Iterating over Properties**: Using a `for-in` loop.
 
-The `for-in` loop gives us each property one by one, but not necessarily in the order they were added (hence `unordered collection`).
+The `for-in` loop gives us each `key` one by one, but not necessarily in the order they were added (hence `unordered collection`).
 
 https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
 
 ```javascript
+// Loop over all `keys` in the object
 for (let key in person) {
-    console.log(key, person[key]);
+    value = person[key];
+    console.log(key, value);
 }
 ```
 
@@ -461,6 +463,7 @@ fruits[0] = "Orange";  // Update the first element, to "Orange"
 The `for-of` loop gives us each element one by one, in the order they were added (hence `ordered collection`).
 
 ```javascript
+// Loop over all `elements` in the array
 for (let fruit of fruits) {
     console.log(fruit);
 }
@@ -586,10 +589,16 @@ Properties can be accessed using the `Dot Notation` `.` or the `Bracket Notation
 
 ```javascript
 student.name;                   // Dot Notation
-student["name"];                // Bracket Notation uses a string
+student["name"];                // Bracket Notation
+```
 
-const property = "name";
-student[property];              // Bracket Notation with a variable
+- **Accessing Properties with Dynamic Keys**:
+
+Properties can be accessed using a variable with the `Bracket Notation` `[]`.
+
+```javascript
+const property = "name";        // `Dynamic key`
+student[property];              // Bracket Notation with `Dynamic Key`
 ```
 
 - **Accessing non-existing Properties**:
@@ -597,8 +606,7 @@ student[property];              // Bracket Notation with a variable
 Accessing a non-existing property returns `undefined`.
 
 ```javascript
-student.city;                    // undefined
-student["city"];
+student.city;                   // ❌ undefined
 ```
 
 - **Updating Properties**:
@@ -606,11 +614,7 @@ student["city"];
 Properties can be updated using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
 
 ```javascript
-student.name = "Bob";           // Dot Notation
-student["name"] = "Bob";        // Bracket Notation
-
-const property = "name";
-student[property] = "Bob";      // Bracket Notation with a variable
+student.name = "Bob";
 ```
 
 - **Adding Properties**:
@@ -618,8 +622,7 @@ student[property] = "Bob";      // Bracket Notation with a variable
 Properties can be added to an object using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
 
 ```javascript
-student.city = "New York";       // Dot Notation
-student["city"] = "New York";    // Bracket Notation
+student.city = "New York";
 ```
 
 - **Deleting Properties**:
@@ -656,7 +659,6 @@ Accessing a property and calling it with `()` executes the function (aka method)
 
 ```javascript
 student.greet();                 // "Hello, Ana"
-student["greet"]();
 ```
 
 
@@ -695,5 +697,4 @@ Using the `Dot Notation` `.` or the `Bracket Notation` `[]`.
 
 ```javascript
 person.address.city;             // "New York"
-person["address"]["city"];       // "New York"
 ```
