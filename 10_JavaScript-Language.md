@@ -504,22 +504,39 @@ Boolean("Hello");           // true
 !![];                       // true
 ```
 
-- **If-Statement**: Using `if` to check if a value is `truthy` or `falsy`.
+- **Check for Truthy**: Using if statement to check if a value is `truthy`.
 
 ```javascript
 function greet(name) {
+    // If name is truthy, use `name`.
     if (name) {
         return `Hello, ${name}`;
+    // Otherwise, use "World".
     } else {
         return "Hello, World";
     }
 }
 ```
 
-- **Logical Operator**: Using `||` as a default value guard for `undefined` or `null`.
+- **Check for Falsy**: Using if statement to check if a value is `falsy`.
 
 ```javascript
 function greet(name) {
+    // If name is falsy, use "World".
+    if (!name) {
+        return "Hello, World";
+    // Otherwise, use `name`.
+    } else {
+        return `Hello, ${name}`;
+    }
+}
+```
+
+- **Default Value**: Using the `||` operator as a `default value guard` to provide a default.
+
+```javascript
+function greet(name) {
+    // If name is falsy, use "World" as the default value.
     name = name || "World";
     return `Hello, ${name}`;
 }
@@ -532,19 +549,21 @@ In JavaScript, the `nullish` values are `null` and `undefined`.
 - **`null` == `undefined`**:
 
 ```javascript
-null == undefined; // true
-null === undefined; // false
+null == undefined; // true (loose equality)
+null === undefined; // false (strict equality)
 ```
 
-- **Check for Nullish**:
+- **Nullish vs Falsy**:
 
 ```javascript
 if (value == null) {
-    // value is null or undefined, thus `nullish`
+    // value is `null` or `undefined`
+}
+
+if (!value) {
+    // value is `false`, `0`, `""`, `null`, `undefined`, `NaN`
 }
 ```
-
-
 
 
 ## 2. Advanced
