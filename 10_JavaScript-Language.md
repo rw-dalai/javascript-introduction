@@ -250,6 +250,12 @@ let number = 10;
 number += 5;                    // number = number + 5
 ```
 
+- **Logical Operators**: `&&`, `||`, `!`
+
+```javascript
+false || true;                  // true
+```
+
 - **Loose vs Strict Equality**: `==`, `===`
 
 In JavaScript, to compare values by using `===` (strict equality) and `==` (loose equality).
@@ -264,21 +270,28 @@ In JavaScript, to compare values by using `===` (strict equality) and `==` (loos
 
 In JavaScript, `type coercion` is the automatic conversion of values from one data type to another.
 
-- **String Concatenation**: Converts a `number` to a `string`.
+- **String Operation**: Converts a `value` to a `string`.
 
 ```javascript
-let string = "42" + 42;         // "4242"
-typeof string;                  // "string"
+let string1 = "42" + 42;         // "4242"
+let string2 = true + "42";       // "42true"
 ```
 
-- **Postfix +/- Operator**: Converts a `string` to a `number`.
+- **Number Operation**: Converts a `value` to a `number`.
 
 ```javascript
-let number = +"42";             // 42
-typeof number;                  // "number"
+let number1 = +"42";             // 42
+let number2 = "42" *2            // 84
+```
 
-let negative = -"42";           // -42
-typeof negative;                // "number"
+- **Boolean Operation**: Converts a `value` to a `boolean`.
+
+In JavaScript, certain values are `falsy` and `truthy`. See end of this section for more details.
+
+```javascript
+let boolean = !!"";              // Converts to false
+let boolean = !!"Hello"          // Converts to true
+let message = "" || "Hello";     // message = "Hello"
 ```
 
 ### Type Conversion
@@ -475,7 +488,7 @@ function greet(name) {
 }
 ```
 
-- **Short-Circuit Evaluation**: Using `||` to return the first `truthy` value.
+- **Logical Operator**: Using `||` to return a default value.
 
 ```javascript
 function greet(name) {
