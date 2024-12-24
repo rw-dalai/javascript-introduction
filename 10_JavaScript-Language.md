@@ -467,7 +467,7 @@ for (let fruit of fruits) {
 ```
 
 
-## 2. Advanced
+## 2. Intermediate
 
 ### Truthy and Falsy
 
