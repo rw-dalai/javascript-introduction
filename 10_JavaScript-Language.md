@@ -170,66 +170,6 @@ const name = "Alice";
 const greeting = `Hello, ${name}`;
 ```
 
-### Objects
-
-In JavaScript, `objects` are used to store an `unordered collection` of data as `properties`.
-
-- **Create an Object**: Using `{}` and defining its properties by `key: value` pairs.
-
-```javascript
-const person = { name: "Ana", age: 18 };
-typeof person;  // "object"
-```
-
-- **Accessing Properties**: Using the `.` operator.
-
-```javascript
-person.name;  // "Ana"
-```
-
-- **Updating Properties**: Using the `=` operator.
-
-```javascript
-person.name = "Susi";
-```
-
-- **Accessing non-existing Properties**: Returns `undefined`.
-
-```javascript
-person.city;  // undefined
-```
-
-
-### Functions
-
-In JavaScript, `functions` are used to perform a specific task or calculate a value.
-
-- **Create a Function**: Using the `function` keyword. `function name() { ... }`
-
-```javascript
-function greet() {
-    console.log("Hello, World!");
-}
-
-typeof greet; // "function"
-```
-
-- **with Parameters**: A function that accepts `parameters`.
-
-```javascript
-function greet(name) {
-    console.log("Hello, " + name);
-}
-```
-
-- **with Return Value**: A function that returns a value using the `return` keyword.
-
-```javascript
-function add(num1, num2) {
-    return num1 + num2;
-}
-```
-
 ### Operators
 
 In JavaScript, `operators` are used to perform operations on variables and values.
@@ -274,7 +214,7 @@ In JavaScript, `type coercion` is the automatic conversion of values from one da
 
 ```javascript
 let string1 = "42" + 42;         // "4242"
-let string2 = true + "42";       // "42true"
+let string2 = 42 + "";           // "42"
 ```
 
 - **Number Context**: Converts a `value` to a `number`.
@@ -286,17 +226,23 @@ let number2 = "42" * 2           // 84
 
 - **Boolean Context**: Converts a `value` to a `boolean`.
 
-In JavaScript, certain values are `falsy` and `truthy`. See end of this section for more details.
+In JavaScript, certain values are `falsy` and `truthy`. [Full Explanation](#truthy-and-falsy).
 
 ```javascript
 let boolean = !!"";              // Converts to false
 let boolean = !!"Hello"          // Converts to true
-let message = "" || "Hello";     // message = "Hello"
 ```
 
 ### Type Conversion
 
 In JavaScript, `type conversion` is the explicit conversion of a value from one data type to another.
+
+- **String Fn**: Converts a `number` to a `string`.
+
+```javascript
+let string = String(42);        // "42"
+typeof string;                  // "string"
+```
 
 - **Number Fn**: Converts an integer-based `string` to a `number`.
 
@@ -322,11 +268,13 @@ let pixel = parseInt("42px");   // 42
 typeof pixel;                   // "number"
 ```
 
-- **String Fn**: Converts a `number` to a `string`.
+- **Boolean Fn**: Converts a `value` to a `boolean`.
+
+In JavaScript, certain values are `falsy` and `truthy`. [Full Explanation](#truthy-and-falsy).
 
 ```javascript
-let string = String(42);        // "42"
-typeof string;                  // "string"
+let boolean = Boolean(42);      // true
+typeof boolean;                 // "boolean"
 ```
 
 ### Not a Number (NaN)
@@ -408,6 +356,77 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
+### Functions
+
+In JavaScript, `functions` are used to perform a specific task or calculate a value.
+
+- **Create a Function**: Using the `function` keyword. `function name() { ... }`
+
+```javascript
+function greet() {
+    console.log("Hello, World!");
+}
+
+typeof greet; // "function"
+```
+
+- **with Parameters**: A function that accepts `parameters`.
+
+```javascript
+function greet(name) {
+    console.log("Hello, " + name);
+}
+```
+
+- **with Return Value**: A function that returns a value using the `return` keyword.
+
+```javascript
+function add(num1, num2) {
+    return num1 + num2;
+}
+```
+
+### Objects
+
+In JavaScript, `objects` are used to store an `unordered collection` of data as `properties`.
+
+- **Create an Object**: Using `{}` and defining its properties by `key: value` pairs.
+
+```javascript
+const person = { name: "Ana", age: 18 };
+typeof person;  // "object"
+```
+
+- **Number of Properties**: The `Object.keys` with `length` returns the number of properties.
+
+```javascript
+Object.keys(person).length;  // 2
+```
+
+- **Accessing Properties**: Using the `.` operator.
+
+```javascript
+person.name;  // "Ana"
+```
+
+- **Updating Properties**: Using the `=` operator.
+
+```javascript
+person.name = "Susi";
+```
+
+- **Iterating over Properties**: Using a `for-in` loop.
+
+The `for-in` loop gives us each property one by one, but not necessarily in the order they were added (hence `unordered collection`).
+
+https://stackoverflow.com/questions/280713/elements-order-in-a-for-in-loop
+
+```javascript
+for (let key in person) {
+    console.log(key, person[key]);
+}
+```
+
 ### Arrays
 
 In JavaScript, `arrays` are used to store an `ordered collection` of data called `elements`.
@@ -419,7 +438,7 @@ const fruits = ["Apple", "Banana", "Cherry"];
 typeof fruits;  // "object"
 ```
 
-- **Length**: The length property returns the number of elements.
+- **Number of Elements**: The length property returns the number of elements.
 
 ```javascript
 fruits.length;  // 3
@@ -437,23 +456,20 @@ fruits[0];  // Access the first element, "Apple"
 fruits[0] = "Orange";  // Update the first element, to "Orange"
 ```
 
-- **Iterate over an array**: Using `for` and the `length` property.
+- **Iterating over Elements**: Using a `for-of` loop.
+
+The `for-of` loop gives us each element one by one, in the order they were added (hence `ordered collection`).
 
 ```javascript
-// Array of fruits
-const fruits = ["Apple", "Banana", "Cherry"];
-
-// Iterate over the array
-for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i]);
+for (let fruit of fruits) {
+    console.log(fruit);
 }
 ```
 
 ### Truthy and Falsy
 
-In JavaScript, if a value is used in a `boolean context`, it is considered `truthy` or `falsy`.
+In JavaScript, if a value is used in a `Boolean Context`, it is coerced to a `boolean` value thus considered `truthy` or `falsy`.
 
-https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 
 - **Boolean Context**: Using `if`, `while`, `for`, `&&`, `||`, `!`.
 
@@ -462,7 +478,9 @@ if (0) { console.log("Falsy"); }  // logs nothing
 if (42) { console.log("Truthy"); }  // logs "Truthy"
 ```
 
-- **Falsy Values**: false, 0, "", null, undefined, NaN
+- **Falsy Values**: `false`, `0`, `""`, `null`, `undefined`, `NaN`
+
+https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 
 ```javascript
 Boolean(0);                 // false
@@ -503,6 +521,27 @@ function greet(name) {
     return `Hello, ${name}`;
 }
 ```
+
+### Nullish
+
+In JavaScript, the `nullish` values are `null` and `undefined`.
+
+- **`null` == `undefined`**:
+
+```javascript
+null == undefined; // true
+null === undefined; // false
+```
+
+- **Check for Nullish**:
+
+```javascript
+if (value == null) {
+    // value is null or undefined, thus `nullish`
+}
+```
+
+
 
 
 ## 2. Advanced
