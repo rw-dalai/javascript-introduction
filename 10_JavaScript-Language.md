@@ -308,58 +308,6 @@ let result = Number('42px');    // NaN
 Number.isNaN(result);           // true
 ```
 
-### Conditional Statements
-
-In JavaScript, `conditional statements` are used to perform different actions based on different conditions.
-
-
-- **If Statement**:
-
-Executes a block of code if the condition is `true`. Otherwise, it skips the block.
-
-```javascript
-// Check if age is greater or equal to 18
-if (age >= 18) {
-    console.log("You are an adult");
-}
-```
-
-- **If-Else Statement**:
-
-Executes a block of code if the condition is `true`, otherwise executes another block of code.
-
-```javascript
-// Prompt the user for their age
-const ageFromUser = prompt("Enter your age:");
-
-// Convert the age to a number
-const age = Number(ageFromUser);
-
-// Check if age is greater or equal to 18
-if (age >= 18) {
-    console.log("You are an adult");
-} else {
-    console.log("You are a minor");
-}
-```
-
-
-### Iteration Statements
-
-In JavaScript, `iteration statements` are used to execute a block of code multiple times.
-
-- **For-Statement**:
-
-Call a block of code multiple times. `for (initialization; condition; increment) { ... }`
-
-```javascript
-// Loop from 0 to 4
-for (let i = 0; i < 5; i++) {
-    console.log(i);
-}
-```
-
-
 ### Strings
 
 In JavaScript, `strings` are used to store and manipulate Unicode text. Unicode can represent any character in the world, even emojis 😍.
@@ -391,6 +339,54 @@ const name = "Alice";
 const greeting = `Hello, ${name}`;
 ```
 
+### Conditional Statements
+
+In JavaScript, `conditional statements` are used to perform different actions based on different conditions.
+
+- **If Statement**:
+
+Executes a block of code if the condition is `true`. Otherwise, it skips the block.
+
+```javascript
+// Check if age is greater or equal to 18
+if (age >= 18) {
+    console.log("You are an adult");
+}
+```
+
+- **If-Else Statement**:
+
+Executes a block of code if the condition is `true`, otherwise executes another block of code.
+
+```javascript
+// Prompt the user for their age
+const ageFromUser = prompt("Enter your age:");
+
+// Convert the age to a number
+const age = Number(ageFromUser);
+
+// Check if age is greater or equal to 18
+if (age >= 18) {
+    console.log("You are an adult");
+} else {
+    console.log("You are a minor");
+}
+```
+
+### Iteration Statements
+
+In JavaScript, `iteration statements` are used to execute a block of code multiple times.
+
+- **For-Statement**:
+
+Call a block of code multiple times. `for (initialization; condition; increment) { ... }`
+
+```javascript
+// Loop from 0 to 4
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+```
 
 ### Arrays
 
@@ -497,7 +493,6 @@ Properties can be deleted using the `delete` operator.
 ```javascript
 delete student.name;
 ```
-
 
 ### Object Methods
 
