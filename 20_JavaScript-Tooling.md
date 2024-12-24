@@ -59,12 +59,9 @@ When building bigger web/mobile applications, developers use JavaScript framewor
 - **React Native**: Developed by Facebook in 2015.
 
 
-## 3. Node and NPM
+## 3. Install Node
 
-<p float="left">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/2560px-Node.js_logo_2015.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="200"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1200px-Npm-logo.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="150"/>
-</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/2560px-Node.js_logo_2015.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="200"/>
 
 ### Overview
 - **Link:** https://nodejs.org/en/
@@ -72,12 +69,10 @@ When building bigger web/mobile applications, developers use JavaScript framewor
 - **Developed By**: Ryan Dahl in 2009
 - **JS Conf 2009**: [Ryan Dahl's Original Node.js Presentation](https://www.youtube.com/watch?v=ztspvPYybIY)
 
-
 ### Key Components
 - **Node**: A JavaScript runtime that allows you to run JavaScript outside the browser environment.
 - **NPM**: A package manager and CLI for managing dependencies and packages for Node projects.
 - **NPX**: A tool to execute Node packages without installing them globally, ideal for one-off command-line uses.
-
 
 ### Installation
 * **Install:** https://nodejs.org/en/download
@@ -116,7 +111,23 @@ console.log(message);
 node main.js
 ```
 
-## 5. Create NPM Project
+## 5. NPM
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1200px-Npm-logo.svg.png" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="150"/>
+
+### Overview
+- **Link:** https://www.npmjs.com/
+- **Purpose**: A package manager and command line tool, for setting up and managing Node based projects.
+- **Developed By**: Isaac Z. Schlueter in 2009
+- **Acquired By**: GitHub in 2020
+
+### Key Features
+- **Standard**: One of the standardized ways to create JavaScript based projects.
+- **Manages Project**: Manages project dependencies and metadata in the `package.json` file.
+- **Automates Project**: Automates project tasks using scripts defined in the `package.json` file.
+
+
+## 6. Create NPM Project
 
 We are going to create a simple NPM project and run it using NPM commands.
 
@@ -127,7 +138,7 @@ mkdir my-npm-project
 cd my-npm-project
 ```
 
-- **Initialize a Node project**:
+- **Initialize a NPM based project**:
 
 ```sh
 # Creates a new package.json file
@@ -175,10 +186,9 @@ console.log(message);
 npm start
 ```
 
-## 6. Vite
+## 7. Vite
 
 <img src="https://vitejs.dev/logo.svg" style="margin-left: 50px; margin-top: 20px; margin-bottom: 20px" width="100"/>
-
 
 ### Overview
 - **Link:** https://vitejs.dev/
@@ -186,11 +196,12 @@ npm start
 - **Developed By**: Evan You, creator of Vue.js
 
 ### Key Features
-- **Hot Module Replacement**: Updates the browser in real-time as you edit your code.
-- **Optimized Build**: Generates optimized production builds with minimal configuration.
-- **Plugin System**: Supports plugins for customizing the build process.
+- **Modern Build Tool**: A fast, modern frontend build tool with a built-in development server.
+- **Live-Reload**: Instant live-reload (e.g., changes in the code are instantly reflected in the browser).
+- **Bundler**: Bundler optimized for production builds (e.g., smaller, fewer files)
+- **Plugins**: Rich plugin ecosystem (e.g., React, Angular, Vue, TypeScript, etc.)
 
-## 7. Create Vite Project
+## 8. Create Vite Project
 
 We are going to create a simple Vite project and run it using NPM commands.
 
@@ -259,3 +270,24 @@ console.log(message);
 const app = document.getElementById("app");
 app.innerHTML = "<h1>" + message + "</h1>";
 ```
+
+## 9. Summary
+
+### Concepts
+- **JavaScript Runtimes**: Includes the JavaScript Engine, Web APIs, Input/Output, File System, and more.
+- **JavaScript Frameworks**: Used to manage the complexity of bigger web/mobile applications (React, Angular, etc.).
+- **Node**: A JavaScript runtime, that allows you to run JavaScript outside the browser environment.
+- **NPM**: A package manager and command line tool, for setting up and managing Node based projects.
+- **Vite**: A fast, modern frontend build tool with a built-in development server.
+
+### NPM
+- **Standard**: One of the standardized ways to create JavaScript based projects.
+- **Manages Project**: Manages project dependencies and metadata in the `package.json` file.
+- **Automates Project**: Automates project tasks using scripts defined in the `package.json` file.
+
+### Vite
+- **Modern Build Tool**: A fast, modern frontend build tool with a built-in development server.
+- **Live-Reload**: Instant live-reload (e.g., changes in the code are instantly reflected in the browser).
+- **Bundler**: Bundler optimized for production builds (e.g., smaller, fewer files)
+- **Plugins**: Rich plugin ecosystem (e.g., React, Angular, Vue, TypeScript, etc.)
+
