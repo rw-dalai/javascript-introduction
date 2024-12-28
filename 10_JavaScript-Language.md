@@ -196,14 +196,22 @@ number += 5;                        // number = number + 5
 false || true;                      // true
 ```
 
-- **Loose vs Strict Equality**: `==`, `===`
+- **Loose Equality**: `==`
 
-In JavaScript, to compare values by using `===` (strict equality) and `==` (loose equality).
+In JavaScript, when using the `==` operator, values are compared after possible type coercion to a common type.
 
 ```javascript
-10 == 10;                           // true (loose equality)
-10 == "10";                         // true (loose equality)
-10 === "10";                        // false (strict equality)
+10 == 10;                           // true (types are the same; values are the same)
+10 == "10";                         // true (types are different; -> coercion to common number type)
+```
+
+- **Strict Equality**: `===`
+
+In JavaScript, when using the `===` operator, types and values are compared without type coercion.
+
+```javascript
+10 === 10;                          // true (types are the same; values are the same)
+10 === "10";                        // false (type are different; -> no coercion allowed)
 ```
 
 ### Type Coercion
