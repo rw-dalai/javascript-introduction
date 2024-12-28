@@ -490,9 +490,6 @@ In JavaScript, if a `value` is used in a `Boolean Context`, it is coerced to a `
 ```javascript
 // Using the `if` statement to check if a value is `truthy`
 if (value) { /* .. */ }
-
-// Using the `||` operator as a default value guard
-const defaultValue = value || "default";
 ```
 
 - **Falsy Values**: `false`, `0`, `""`, `null`, `undefined`, `NaN`
