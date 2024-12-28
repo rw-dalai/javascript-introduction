@@ -4,17 +4,18 @@
 
 - **Q1.** What is the difference between `let`, `const` JavaScript?
 - **Q2.** What is the difference between `==` and `===` in JavaScript?
-- **Q3.** What is the difference between `null` and `undefined` in JavaScript?
-- **Q4.** What data types exist in JavaScript?
-- **Q5.** How to check the type of a variable in JavaScript?
-- **Q6.** What are primitive data types in JavaScript?
-- **Q7.** What is an `object` in JavaScript?
-- **Q8.** How to create an `object` in JavaScript?
-- **Q9.** What is a `function` in JavaScript?
-- **Q10.** How do you define a `function` in JavaScript?
-- **Q11.** Can a function return `undefined`? If so, how?
-- **Q12.** What is `NaN` in JavaScript?
-- **Q13.** How to convert a `string` to a `number` in JavaScript?
+- **Q3.** Explain what is happening when comparing `42 == "42"`?
+- **Q4.** What is the difference between `null` and `undefined` in JavaScript?
+- **Q5.** What data types exist in JavaScript?
+- **Q6.** How to check the type of a variable in JavaScript?
+- **Q7.** What are primitive data types in JavaScript?
+- **Q8.** What is an `object` in JavaScript?
+- **Q9.** How to create an `object` in JavaScript?
+- **Q10.** What is a `function` in JavaScript?
+- **Q11.** How do you define a `function` in JavaScript?
+- **Q12.** Can a function return `undefined`? If so, how?
+- **Q13.** What is `NaN` in JavaScript?
+- **Q14.** How to convert a `string` to a `number` in JavaScript?
 
 
 ## Strings
