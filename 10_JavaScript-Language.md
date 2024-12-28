@@ -501,7 +501,7 @@ Boolean(0);                 // false
 Boolean("");                // false
 ```
 
-- **Truthy Values**: all values that are not falsy.
+- **Truthy Values**: All values that are not falsy.
 
 ```javascript
 Boolean(42);                // true
