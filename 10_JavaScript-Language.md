@@ -139,8 +139,8 @@ In JavaScript, `strings` are used to store and manipulate text which can be any 
 - **Unicode**: A standard for encoding, representing, and handling text in any language in the world.
 
 ```javascript
-const emoji = "🚀";                  // "🚀"
-const chinese = "你好";               // "Hallo"
+const emoji = "🚀";                 // "🚀"
+const chinese = "你好";              // "Hallo"
 ```
 
 - **Create a String**: Using `""` or `''`.
@@ -214,7 +214,7 @@ In JavaScript, `type coercion` is the automatic conversion of values from one da
 
 ```javascript
 const string1 = 42+"";              // "42"
-const number2 = (42+"42") + 2       // "42422"
+const string2 = (42+"42") + 2       // "42422"
 ```
 
 - **Number Context**: Converts a `value` to a `number`.
