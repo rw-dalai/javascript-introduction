@@ -24,8 +24,8 @@
 - **Q3.** Explain what is happening when comparing `42 === "42"`?
 - **Q4.** Explain what is happening when comparing `true == 1`?
 - **Q5.** Explain what is happening when comparing `true === 1`?
-- **Q6.** Explain what is happening when doing (2+"2") + 2?
-- **Q7.** Explain what is happening when doing (2+"2") - 2?
+- **Q6.** Explain what is happening when doing `(2+"2") + 2`?
+- **Q7.** Explain what is happening when doing `(2+"2") - 2`?
 
 
 ## Type Conversion
