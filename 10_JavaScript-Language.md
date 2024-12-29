@@ -503,6 +503,8 @@ https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 ```javascript
 Boolean(0);                 // false
 Boolean("");                // false
+
+if (0) { /* .. */ } else { /* this is executed */ }
 ```
 
 - **Truthy Values**: All values that are not falsy.
@@ -512,6 +514,8 @@ Truthy values are values that are considered `true` when evaluated in a `Boolean
 ```javascript
 Boolean(42);                // true
 Boolean("Hello");           // true
+
+if (42) { /* this is executed */ } else { /* .. */ }
 ```
 
 - **Coercion**: Using `!!` to convert a value to a boolean.
