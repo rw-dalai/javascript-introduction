@@ -370,7 +370,7 @@ for (let i = 0; i < 5; i++) {
 
 ### Functions
 
-In JavaScript, `functions` are used to perform a specific task or calculate a value.
+In JavaScript, `functions` are used to perform a specific task or calculate a value. Let's think of them as `reusable code`.
 
 - **Create a Function**: Using the `function` keyword. `function name() { ... }`
 
