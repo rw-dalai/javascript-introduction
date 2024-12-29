@@ -1,6 +1,5 @@
 # JavaScript Questions and Exercises
 
-
 ## Conceptual Questions
 
 - **Q1.** What is the difference between `let`, `const` JavaScript?
@@ -17,7 +16,7 @@
 - **Q13.** What is `NaN` in JavaScript?
 - **Q14.** How to convert a `string` to a `number` in JavaScript?
 
-## Dynamic, Static, Weak, and Strong Typing
+## Type System
 
 - **Q1.** What is the difference between `dynamic` and `static` typing?
 - **Q2.** What is the difference between `weak` and `strong` typing?
@@ -26,7 +25,7 @@
 - **Q7.** What are the pros and cons of allowing `type coercion` in JavaScript?
 - **Q8.** Why might strong typing be preferred in `large-scale` applications?
 
-## Type Coercion Practice
+## Type Coercion
 
 - **Q3.** Explain what is happening when comparing `42 == "42"`?
 - **Q4.** Explain what is happening when comparing `42 === "42"`?
