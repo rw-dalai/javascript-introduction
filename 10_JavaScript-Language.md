@@ -221,7 +221,7 @@ In JavaScript, `type coercion` is the automatic conversion of values of differen
 
 - **String Context**: Converts a `value` to a `string`.
 
-The addition operator `+` implies a String Context, hence the number is coerced to a string.
+The addition operator `+` implies a String Context, hence the value is coerced to a string.
 
 ```javascript
 const string1 = 42+"";              // "42"
@@ -230,7 +230,7 @@ const string2 = (42+"42") + 2       // "42422"
 
 - **Number Context**: Converts a `value` to a `number`.
 
-The unary `+` or the `-` operator implies a Number Context, hence the string is coerced to a number.
+The unary `+` or the `-` operator implies a Number Context, hence the value is coerced to a number.
 
 ```javascript
 const number1 = +"42"               // 42
