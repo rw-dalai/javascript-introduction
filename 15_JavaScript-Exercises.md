@@ -1,5 +1,6 @@
 # JavaScript Questions and Exercises
 
+
 ## Conceptual Questions
 
 - **Q1.** What is the difference between `let`, `const` JavaScript?
@@ -15,19 +16,28 @@
 - **Q12.** Can a function return `undefined`? If so, how?
 - **Q13.** What is `NaN` in JavaScript?
 - **Q14.** How to convert a `string` to a `number` in JavaScript?
-- **Q15.** Can a variable change its type in JavaScript? If so, show several examples.
 
+## Dynamic, Static, Weak, and Strong Typing
 
-## Type Coercion
+- **Q1.** What is the difference between `dynamic` and `static` typing?
+- **Q2.** What is the difference between `weak` and `strong` typing?
+- **Q4.** Why in JavaScript a `variable` can change types? Give an example.
+- **Q6.** Why in JavaScript an `expression` can change types? Give an example.
+- **Q7.** What are the pros and cons of allowing `type coercion` in JavaScript?
+- **Q8.** Why might strong typing be preferred in `large-scale` applications?
 
-- **Q1.** What is the difference between `type coercion` and `type conversion`?
-- **Q2.** Explain what is happening when comparing `42 == "42"`?
-- **Q3.** Explain what is happening when comparing `42 === "42"`?
-- **Q4.** Explain what is happening when comparing `true == 1`?
-- **Q5.** Explain what is happening when comparing `true === 1`?
-- **Q6.** Explain what is happening when doing `(2+"2") + 2`?
-- **Q7.** Explain what is happening when doing `(2+"2") - 2`?
+## Type Coercion Practice
 
+- **Q3.** Explain what is happening when comparing `42 == "42"`?
+- **Q4.** Explain what is happening when comparing `42 === "42"`?
+- **Q5.** Explain what is happening when comparing `true == 1`?
+- **Q6.** Explain what is happening when comparing `true === 1`?
+- **Q7.** Explain what is happening when doing `(2+"2") + 2`?
+- **Q8.** Explain what is happening when doing `(2+"2") - 2`? 
+- **Q9.** What is the output of the following examples?
+  - `console.log(null + 1)`
+  - `console.log("5" * 2)`
+  - `console.log(true + false)`
 
 ## Type Conversion
 
