@@ -221,30 +221,30 @@ In JavaScript, `type coercion` is the automatic conversion of values of differen
 
 - **String Context**: Converts a `value` to a `string`.
 
+The addition operator `+` implies a String Context, hence the number is coerced to a string.
+
 ```javascript
+// 
 const string1 = 42+"";              // "42"
 const string2 = (42+"42") + 2       // "42422"
 ```
 
 - **Number Context**: Converts a `value` to a `number`.
 
+The unary `+` or the `-` operator implies a Number Context, hence the string is coerced to a number.
+
 ```javascript
+//  
 const number1 = +"42"               // 42
 const number2 = (42+"42") - "2"     // 4240
 ```
 
 - **Boolean Context**: Converts a `value` to a `boolean`.
 
-In JavaScript, certain values are `falsy` and `truthy`. [Full Explanation](#truthy-and-falsy).
+The logical `!` (negation) operator implies a Boolean Context, hence the value is coerced to a boolean. [Truth/Falsy](#truthy-and-falsy)
 
 ```javascript
-// 42 is not a boolean, but it is coerced to a boolean, and considered `truthy`, hence the block is executed.
-const value1 = 42;
-if (value1) { /* executed */ }
-
-// 0 is not a boolean, but it is coerced to a boolean, and considered `falsy`, hence the block is skipped.
-const value2 = 0;
-if (value2) { /* NOT executed */ }
+const boolean1 = !42;               // false
 ```
 
 ### Type Conversion
