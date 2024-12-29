@@ -127,9 +127,10 @@ typeof value;                       // "undefined"
 ```
 
 - **Null**: Represents an intentional absence of any value.
+
 ```javascript
 let empty = null;                   // null
-typeof empty;                       // "object"
+typeof empty;                       // "object" (historical bug)
 ```
 
 ### Strings
@@ -488,11 +489,14 @@ In JavaScript, if a `value` is used in a `Boolean Context`, it is coerced to a `
 - **Boolean Context**: Using `if`, `while`, `for`, `&&`, `||`, `!`.
 
 ```javascript
-// Using the `if` statement to check if a value is `truthy`
+// The if statement uses a boolean context, thus if the value is not a boolean, it is coerced to a boolean.
+const value = 42;
 if (value) { /* .. */ }
 ```
 
 - **Falsy Values**: `false`, `0`, `""`, `null`, `undefined`, `NaN`
+
+Falsy values are values that are considered `false` when evaluated in a `Boolean Context`.
 
 https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 
@@ -502,6 +506,8 @@ Boolean("");                // false
 ```
 
 - **Truthy Values**: All values that are not falsy.
+
+Truthy values are values that are considered `true` when evaluated in a `Boolean Context`.
 
 ```javascript
 Boolean(42);                // true
