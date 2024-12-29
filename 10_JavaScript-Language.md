@@ -216,7 +216,7 @@ In JavaScript, when using the `===` operator, types and values are compared with
 
 ### Type Coercion
 
-In JavaScript, `type coercion` is the automatic conversion of values from one data type to another.
+In JavaScript, `type coercion` is the automatic conversion of values of different data types to a common type during operations.
 
 - **String Context**: Converts a `value` to a `string`.
 
@@ -243,7 +243,7 @@ const boolean2 = !!"Hello"          // Converts to true
 
 ### Type Conversion
 
-In JavaScript, `type conversion` is the explicit conversion of a value from one data type to another.
+In JavaScript, `type conversion` is the explicit conversion of a value from one data type to another type.
 
 - **String Fn**: Converts a `number` to a `string`.
 
