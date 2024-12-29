@@ -684,7 +684,7 @@ student.greet();                 // "Hello, Ana"
 Accessing a non-existing property and calling it with `()` results in an error.
 
 ```javascript
-student.walk                     // undefined
+student.walk                     // ❌ undefined
 student.walk();                  // ❌ Error: student.walk is not a function
 ```
 
