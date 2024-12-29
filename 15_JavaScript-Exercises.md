@@ -4,7 +4,6 @@
 
 - **Q1.** What is the difference between `let`, `const` JavaScript?
 - **Q2.** What is the difference between `==` and `===` in JavaScript?
-- **Q3.** Explain what is happening when comparing `42 == "42"`?
 - **Q4.** What is the difference between `null` and `undefined` in JavaScript?
 - **Q5.** What data types exist in JavaScript?
 - **Q6.** How to check the type of a variable in JavaScript?
@@ -16,6 +15,25 @@
 - **Q12.** Can a function return `undefined`? If so, how?
 - **Q13.** What is `NaN` in JavaScript?
 - **Q14.** How to convert a `string` to a `number` in JavaScript?
+
+
+## Type Coercion
+
+- **Q1.** What is the difference between `type coercion` and `type conversion`?
+- **Q2.** Explain what is happening when comparing `42 == "42"`?
+- **Q3.** Explain what is happening when comparing `42 === "42"`?
+- **Q4.** Explain what is happening when comparing `true == 1`?
+- **Q5.** Explain what is happening when comparing `true === 1`?
+- **Q6.** Explain what is happening when doing (2+"2") + 2?
+- **Q7.** Explain what is happening when doing (2+"2") - 2?
+
+
+## Type Conversion
+
+- **Q1.** How to convert a `string` to a `number`?
+- **Q2.** How to convert a `number` to a `string`?
+- **Q3.** How to convert a pixel value e.g. `255px` to a number?
+- **Q4.** Prompt the user to enter a number and convert it to a number and log it to the console.
 
 
 ## Strings
