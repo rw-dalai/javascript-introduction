@@ -492,7 +492,7 @@ In JavaScript, if a `value` is used in a `Boolean Context`, it is coerced to a `
 - **Boolean Context**: Using `if`, `while`, `for`, `&&`, `||`, `!`.
 
 ```javascript
-// 42 is not a boolean, but it is coerced to a boolean, hence `truthy`, hence the block is executed.
+// 42 is not a boolean, but it is coerced to a boolean, considered `truthy`, hence the block is executed.
 const value = 42;
 if (value) { /* executed */ }
 ```
