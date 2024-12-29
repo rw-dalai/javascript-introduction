@@ -15,6 +15,7 @@
 - **Q12.** Can a function return `undefined`? If so, how?
 - **Q13.** What is `NaN` in JavaScript?
 - **Q14.** How to convert a `string` to a `number` in JavaScript?
+- **Q15.** Can a variable change its type in JavaScript? If so, show several examples.
 
 
 ## Type Coercion
