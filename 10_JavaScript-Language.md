@@ -238,8 +238,13 @@ const number2 = (42+"42") - "2"     // 4240
 In JavaScript, certain values are `falsy` and `truthy`. [Full Explanation](#truthy-and-falsy).
 
 ```javascript
-const boolean1 = !!"";              // Converts to false
-const boolean2 = !!"Hello"          // Converts to true
+// 42 is not a boolean, but it is coerced to a boolean, and considered `truthy`, hence the block is executed.
+const value1 = 42;
+if (value1) { /* executed */ }
+
+// 0 is not a boolean, but it is coerced to a boolean, and considered `falsy`, hence the block is skipped.
+const value2 = 0;
+if (value2) { /* NOT executed */ }
 ```
 
 ### Type Conversion
