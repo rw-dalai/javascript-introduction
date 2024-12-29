@@ -489,9 +489,9 @@ In JavaScript, if a `value` is used in a `Boolean Context`, it is coerced to a `
 - **Boolean Context**: Using `if`, `while`, `for`, `&&`, `||`, `!`.
 
 ```javascript
-// The if statement uses a boolean context, thus if the value is not a boolean, it is coerced to a boolean.
+// 42 is not a boolean, but it is coerced to a boolean, hence `truthy`, hence the block is executed.
 const value = 42;
-if (value) { /* .. */ }
+if (value) { /* executed */ }
 ```
 
 - **Falsy Values**: `false`, `0`, `""`, `null`, `undefined`, `NaN`
@@ -504,7 +504,7 @@ https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 Boolean(0);                 // false
 Boolean("");                // false
 
-if (0) { /* .. */ } else { /* this is executed */ }
+if (0) { /* .. */ } else { /* executed */ }
 ```
 
 - **Truthy Values**: All values that are not falsy.
@@ -515,7 +515,7 @@ Truthy values are values that are considered `true` when evaluated in a `Boolean
 Boolean(42);                // true
 Boolean("Hello");           // true
 
-if (42) { /* this is executed */ } else { /* .. */ }
+if (42) { /* executed */ } else { /* .. */ }
 ```
 
 - **Coercion**: Using `!!` to convert a value to a boolean.
