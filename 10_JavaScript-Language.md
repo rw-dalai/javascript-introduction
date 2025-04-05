@@ -270,7 +270,7 @@ typeof pixel;                       // "number"
 
 - **parseInt Fn**: Converts a integer-based number as a `string` to a `number`.
 
-*Forgiving*: If the string is not a valid integer, it returns the `integer part`.
+*Forgiving*: Stops parsing when it's not a valid integer-based number anymore, and returns the `integer part`.
 
 ```javascript
 const number = parseInt("42.2");    // 42
@@ -282,7 +282,7 @@ typeof pixel;                       // "number"
 
 - **parseFloat Fn**: Converts any number as a `string` to a `number`.
 
-*Forgiving*: If the string is not a valid integer, it returns the `integer part`.
+*Forgiving*: Stops parsing when it's not a valid number anymore, and returns the `number part`.
 
 ```javascript
 const number = parseFloat("42.2");  // 42.2
