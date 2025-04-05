@@ -256,27 +256,39 @@ const string = String(42);          // "42"
 typeof string;                      // "string"
 ```
 
-- **Number Fn**: Converts an integer-based `string` to a `number`.
+- **Number Fn**: Converts any number as `string` to a `number`.
 
-*Not forgiving*: If the string is not a valid integer, it returns `NaN`.
+*Not forgiving*: If the string is not a valid number, it returns `NaN`.
 
 ```javascript
-const number = Number("42");        // 42
+const number = Number("42.2");      // 42.2
 typeof number;                      // "number"
 
-const pixel = Number("42px");       // NaN
+const pixel = Number("42.2px");     // NaN
 typeof pixel;                       // "number"
 ```
 
-- **parseInt Fn**: Converts an integer-based `string` to a `number`.
+- **parseInt Fn**: Converts a integer-based number as a `string` to a `number`.
 
 *Forgiving*: If the string is not a valid integer, it returns the `integer part`.
 
 ```javascript
-const number = parseInt("42");      // 42
+const number = parseInt("42.2");    // 42
 typeof number;                      // "number"
 
-const pixel = parseInt("42px");     // 42
+const pixel = parseInt("42.2px");   // 42
+typeof pixel;                       // "number"
+```
+
+- **parseFloat Fn**: Converts any number as a `string` to a `number`.
+
+*Forgiving*: If the string is not a valid integer, it returns the `integer part`.
+
+```javascript
+const number = parseFloat("42.2");  // 42.2
+typeof number;                      // "number"
+
+const pixel = parseFloat("42.2px"); // 42.2
 typeof pixel;                       // "number"
 ```
 
