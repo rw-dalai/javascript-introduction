@@ -303,32 +303,41 @@ typeof boolean;                     // "boolean"
 
 ### Not a Number (NaN)
 
-In JavaScript, `NaN` is a special number produced when a `mathematical operation` fails.
+In JavaScript, `NaN` is a special numeric value that represents an invalid number result.
 
-- **NaN**: is technically a `number`.
+- **NaN is still a number**: Its type is `number`.
 
 ```javascript
 typeof NaN;                         // "number"
 ```
 
-- **Check for NaN**: Using the `isNaN` function.
+- **Check for NaN**: NaN is the only value in JavaScript that is not equal to itself.
 
 ```javascript
+NaN === NaN;                        // false
 Number.isNaN(NaN);                  // true
-Number.isNaN(10);                   // false
 ```
 
-- **Division by Zero**: Dividing a number by zero results in `NaN`.
+- **Invalid arithmetic**: When a mathematical operation cannot produce a valid result.
 
 ```javascript
-const result = 10 / "apple";        // NaN
-Number.isNaN(result);               // true
+10 / "apple";                       // NaN
+Math.sqrt(-1);                      // NaN
 ```
-- **Converting not a Number**: Converting an invalid number results in `NaN`.
 
-```JavaScript
-const result = Number('42px');      // NaN
-Number.isNaN(result);               // true
+- **Parsing/Conversion errors**: Converting invalid strings into numbers.
+
+```javascript
+Number("42px");                     // NaN
+parseInt("hello");                  // NaN
+```
+
+- **Indeterminate operations**:
+
+```javascript
+0 / 0                               // NaN
+Infinity - Infinity;                // NaN
+undefined + 5;                      // NaN
 ```
 
 ### Conditional Statements
