@@ -187,7 +187,7 @@ const quotient = 10 / 5;            // 2
 - **Assignment Operators**: `=`, `+=`, `-=`, `*=`, `/=`
 
 ```javascript
-const number = 10;
+let number = 10;
 number += 5;                        // number = number + 5
 ```
 
