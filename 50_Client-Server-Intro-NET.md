@@ -403,7 +403,7 @@ const res = await fetch(`${API}/api/todo`, {
 * Enable **dev-only CORS** so the browser stops whining.
 * Expose your local backend with **ngrok** and point other clients at it.
 
-### 🧠 Core concepts
+### Core concepts
 
 * **Client**: Client (React) renders UI + makes HTTP requests.
 * **Server** Server (.NET) listens on a port + returns responses.
