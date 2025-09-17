@@ -4,56 +4,48 @@
 
 ### Goal
 
-* **Client-Server** Client (React) call API Endpoint `GET /api/todo` from Server (.NET).
+* Create a minimal Client (React) and Server (.NET) app.
 
 ### Expected Outcome
 
-- Two repos (**`frontendTodo`**, **`backendTodo`**)
-- React Client
-- .NET Server
-- API Contract: `GET /api/todo` returns `200 OK` + `Hello World`
-- Curl/Postman testing your API
-- What is SOP ?
-- What is CORS ?
-- Fix CORS for local dev
-- Share code via Git (GitHub)
-- Share your local server with ngrok
-
----
+* Two repos (`frontendTodo`, `backendTodo`)
+* React Client (Frontend)
+*.NET Server (Backend)
+* Understand API contracts (endpoint).
+* Understand SOP/CORS.
+* Share code via Git (GitHub).
+* Use curl/Postman to test APIs.
+* Share your local server with ngrok (public URL).
 
 ## 2. Prerequisites
 
-* **Node** ≥ 18 → `node -v`
-* **npm** ≥ 9 → `npm -v`
-* **.NET SDK** ≥ 8 → `dotnet --version`
-* **Git** + a GitHub account
-* **curl** (Git Bash/macOS/Linux have it)
-* **Postman** (install from postman.com)
+**Tools needed**:
 
-**Verify tools**
+* **Node**
+* **npm**
+* **.NET SDK**
+* **Git**
+* **GitHub account**
+* **curl** (Git Bash/macOS/Linux)
+* **Postman** (www.postman.com)
+
+
+**Verify**:
 
 ```sh
-node -v                           # v18+ (e.g. v22.x)
-npm -v                            # v9+  (e.g. 10.x)
-dotnet --version                  # 8.x
+node -v                           # v18+
+npm -v                            # v9+
+dotnet --version                  # 8.0+
 curl --version                    # prints version
 ```
 
----
-
-## 3. Setup
-
-* **Shell**: Git Bash (Windows) or Terminal (Linux/macOS).
-* **Repos**: One `frontendTodo`, one `backendTodo`.
-* **Terminals**: Plan for two terminals (A: backend, B: frontend).
-
----
-
-## 4. Steps
+## 3. Walkthrough
 
 ### Step 1 — Initialize GitHub repositories
 
-* **Why**: Keep frontend and backend separate and shareable.
+Go to GitHub and create two empty GitHub repos: `frontendTodo` and `backendTodo`.
+
+* Clone both repos locally:
 
 ```sh
 # clone the empty frontend repo
@@ -63,42 +55,155 @@ git clone https://github.com/<you>/frontendTodo.git
 git clone https://github.com/<you>/backendTodo.git
 ```
 
-**Verify**
+### Step 2 — Create Server (.NET Minimal API)
 
-* Two folders exist: `frontendTodo/` and `backendTodo/`.
+Create a minimal .NET Web API project.
 
----
+* Scaffold project:
 
-### Step 2 — Create Client (Vite, JavaScript)
+```sh
+cd backendTodo
+dotnet new web -n backendTodo           # Minimal API template
+# or: dotnet new webapi -n backendTodo  # Full Web API template
+```
 
-**What**: Create a minimal React app with a single component.
+* Replace: `Program.cs`
+
+```csharp
+// This is your first .NET app
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+app.Run();
+```
+
+* Run Server:
+
+```sh
+dotnet run
+dotnet run --urls http://localhost:5000  # specify port if needed
+```
+
+
+### Step 3 - API Contract
+
+Create a minimal API endpoint
+
+* Define an API contract:  
+
+`HTTP GET /api/todo` returns `200 OK` + `Hello World`.  
+`200 OK` is the HTTP status code for a successful request.  
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+
+
+* Edit: `Program.cs`:
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// Define API Contract (endpoint)
+app.MapGet("/api/todo", () => "Hello World");
+
+app.Run();
+```
+
+
+### Step 4 — Test API Contract
+
+Verify server works before wiring the frontend.
+
+
+* Use CURL (backend must be running):
+
+```sh
+# HTTP GET /api/todo
+curl -v -X GET http://localhost:5000/api/todo
+```
+
+* Expected output:
+
+```
+> GET /api/todo HTTP/1.1
+> Host: localhost:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/plain; charset=utf-8
+< Date: Mon, 01 Jan 2025 00:00:00 GMT
+< Server: Kestrel
+< Content-Length: 11
+<
+Hello World
+```
+
+
+### Step 5 — Create Client (Vite, JavaScript)
+
+Create a minimal React app with Vite.
+
+* Scaffold project:
 
 ```sh
 cd frontendTodo
 npm create vite@latest . -- --template react
+# or npm create vite@latest .
 npm install
 ```
 
-**Replace: `src/Main.jsx`:**
+* Replace: `src/Main.jsx`:
+
+```jsx
+// This is your first React component
+function App() {
+    // React renders this HTML
+    return (
+        <div>
+          <button>Call API</button>
+          <h1>My First React Component</h1>
+        </div>
+    )
+}
+
+export default App
+```
+
+* Run Client:
+
+```sh
+npm run dev
+npm run dev -- --port 3000        # specify port if needed
+```
+
+
+### Step 6 — Call API from Client
+
+Call the Server API from the React Client.
+
+* Edit: `src/Main.jsx`
 
 ```jsx
 import { useState } from 'react'
 
-const API = 'http://localhost:5000'       // Change to your SERVER URL later
+const API = 'http://localhost:5000';  // Point to the Server
 
 export default function Main() {
-  const [text, setText] = useState('')
-
+  const [text, setText] = useState('');
+    
   async function callApi() {
     try {
-      const res = await fetch(`${API}/api/todo`)
-      const data = await res.text()
-      setText(data)
+      // Call the Server API
+      const res = await fetch(`${API}/api/todo`);
+      const data = await res.text();
+
+    // Set text in <h1>, then React re-renders HTML
+      setText(data);
     } catch {
-      setText('Request failed')
+      setText('Request failed');
     }
   }
-
+  
+  // React renders this HTML
   return (
     <div>
       <button onClick={callApi}>Call API</button>
@@ -108,88 +213,21 @@ export default function Main() {
 }
 ```
 
-**Edit: `src/main.jsx` to render `Main`**
 
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Main from './Main.jsx'
+### Step 7 — Share code via Git/GitHub
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Main />)
-```
-
-**Run Client**
-
-```sh
-npm run dev
-npm run dev -- --port 3000        # specify port if needed
-```
-
-* Open the printed URL → see page with a **Call API** button.
-
-
----
-
-### Step 3 — Create Server (.NET Minimal API)
-
-**What**: Provide `/api/todo` endpoint returning text.
-
-```sh
-cd backendTodo
-dotnet new web                     # minimal API template
-```
-
-**Replace: `Program.cs`**
-
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-
-app.MapGet("/api/todo", () => "Hello World");
-
-app.Run();
-```
-
-**Run Server**
-
-```sh
-dotnet run
-dotnet run --urls http://localhost:5000  # specify port if needed
-```
-
----
-
-### Step 4 — Test Server (curl & Postman)
-
-**What**: Verify server works before wiring the frontend.
-
-```sh
-# simple
-curl http://localhost:5000/api/todo
-
-# verbose
-curl -v http://localhost:5000/api/todo
-```
-
-**Expected**
-
-* Body `Hello World`, status `200 OK`.
-
-**Postman**
-
-![postman](_assets/postman.png)
-
----
-
-### Step 5 — Share code via Git
-
-* **Why**: Push your work; teammates can pull and run.
+Push your work; teammates can pull and run locally.
 
 ```sh
 # You
+cd frontendTodo
 git add .
 git commit -m "create minimal client"
-# git commit -m "create minimal server"
+git push
+
+cd backendTodo
+git add .
+git commit -m "create minimal server"
 git push
 
 # Teammate (first time)
@@ -201,51 +239,79 @@ cd frontendTodo && git pull
 cd backendTodo && git pull
 ```
 
-**Verify**
 
-* Teammate can build/run both projects locally.
+### Step 8 — Run Client and Server locally
 
----
+Now run both the Client and Server locally to see the full flow. You have to open two terminals.
 
-### Step 6 — Run both locally
-
-**Terminal A (Server)**
+* Terminal A (Server):
 
 ```sh
 cd backendTodo
-dotnet run --urls http://localhost:5000
+dotnet run --urls http://localhost:5000 # run server on port 5000
 ```
 
-**Terminal B (Client)**
+* Terminal B (Client):
 
 ```sh
 cd frontendTodo
-npm run dev -- --port 3000
+npm run dev -- --port 3000 # run client on port 3000
 ```
 
-* Open the frontend URL → click **Call API**.
-What's the result?
+* Open the frontend URL → click **Call API**.   
+What's the result in the browser?  
+What's the result in the Developer Console (Windows F12, Mac Cmd+Opt+I)?
 
-**Concepts**
 
-* **URI** = `scheme://host:port/path` (e.g. `http://localhost:5000/api/todo`).
-* **Origin** = `scheme + host + port` → ports differ → different origins.
-* **SOP** = Same-Origin Policy, browser security model. Blocks cross-origin calls by default.
-* **CORS** = Cross-Origin Resource Sharing, opt-in headers from server to relax SOP.
-* **Why blocked?** Browser Origin ≠ Server Origin → SOP blocks call → frontend shows error.
+### Understand URI and Origin
 
----
+**What is a URI?**
 
-### Step 7 — Fix CORS (dev-only)
+A schema in the form of `protocol://host:port/path?query`.  
+The URI identifies a resource on the internet (e.g., a web page, an API endpoint).
 
-**What**: Unblock local cross-origin calls during class/dev.
+* **Example:** `http://localhost:5000/api/todo`, `https://wwww.orf.at/news`
+* **Definition:** A `URI` (Uniform Resource Identifier) is a string that identifies a resource on the internet.
+
+**What is an Origin?**
+
+A schema in the form of `protocol://host:port`.  
+When two URLs have the same schema, they have the same origin.
+
+* **Example:** `http://localhost:5000, `https://www.orf.at:443`
+* **Scheme:** Protocol (http, https, etc.).
+* **Host:** Domain or IP address of a server.
+* **Port:** A number to distinguish multiple services on one host.
+
+### Understand SOP and CORS
+
+**SOP**
+
+Same Origin Policy is a security measure implemented by browsers to isolate web pages from different origins.
+
+* **Why?** To prevent malicious websites from accessing sensitive data on each other.
+* **Who?** Enforced by web browsers.
+* **Example:** https://malicious.com cannot read data from https://bank.com.
+
+**CORS**
+
+Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
+
+* **Why?** To enable cross-origin access in a controlled manner.
+* **Who?** The server must explicitly allow cross-origin requests by sending specific HTTP headers. (e.g., `Access-Control-Allow-Origin`).
+* **Example:** Our Client at origin `http://localhost:3000` calls server at origin `http://localhost:5000` → server must allow it via CORS headers.
+
+
+### Step 9 — Fix CORS (dev-only)
+
+Unblock cross-origin calls during development.
   
-**Replace: `Program.cs`**
+* Edit: Server `Program.cs` to add CORS Header:
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-// CORS for local dev only
+// Define CORS Headers (do this only for local dev)
 builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(p => p
@@ -256,32 +322,34 @@ builder.Services.AddCors(o =>
 
 var app = builder.Build();
 
-app.UseCors(); // must be before endpoints
+// Must be before endpoints
+app.UseCors();
 
+// Define API Contract (endpoint)
 app.MapGet("/api/todo", () => "Hello World");
 
 app.Run();
 ```
 
-* Restart backend:
-
-```sh
-dotnet run --urls http://localhost:5000
-```
+* Restart Server and test again, now it should work.
 
 **Common pitfalls**
 
-* **UseCors order**: Call `app.UseCors()` before mapping endpoints.
-* **Prod caution**: Don’t ship `AllowAnyOrigin` to production.
+* **UseCors Order**: Call `app.UseCors()` before mapping endpoints.
+* **Prod Caution**: Don’t ship `AllowAnyOrigin` to production.
 
 ---
 
-### Step 8 — Expose Server with ngrok
+### Step 10 — Expose Server via ngrok tunnel
 
-* **What**: Share your local backend publicly for class/testing.
+Share your local backend publicly for class/testing.  
+
+**Install**
+
+https://ngrok.com/download
 
 
-* Install & auth:
+* Configure ngrok:
 
 ```sh
 # Configure auth token (from the ngrok dashboard)
@@ -291,18 +359,10 @@ ngrok config add-authtoken <YOUR_TOKEN>
 ngrok config check
 ```
 
-* Run the tunnel (backend must be running):
+* Run the ngrok tunnel (backend must be running):
 
 ```sh
 ngrok http http://localhost:5000
-```
-
-* Copy the **Forwarding** URL like `https://xxx.ngrok-free.app`.
-
-Point the frontend to ngrok URL (`frontendTodo/src/Main.jsx`):
-
-```jsx
-const API = 'https://xxx.ngrok-free.app'  // Teammate’s ngrok URL
 ```
 
 **Verify**
@@ -311,79 +371,83 @@ const API = 'https://xxx.ngrok-free.app'  // Teammate’s ngrok URL
 curl https://abcd-xyz.ngrok-free.app/api/todo
 ```
 
-**Common pitfalls**
+### Step 11 — Call ngrok from Client
 
-* **Mixed content**: If frontend runs on https, prefer https ngrok URL.
-* **Tunnel died**: Keep the ngrok terminal open.
+We call the public ngrok URL which then tunnels to our local machine where our server is running.
 
----
+* Edit Client `src/Main.jsx` to point to the ngrok Endpoint:
 
-## 5. Troubleshooting
-
-### Process management cheat sheet
-
-```sh
-ps aux | grep dotnet                   # list processes
-ps aux | grep node
-ps aux | grep ngrok
-
-kill -9 <PID>                          # kill by PID
+```jsx
+// Ngrok URL that tunnels to your local server
+const API = 'https://xxx.ngrok-free.app';
 ```
 
----
+* Then add an HTTP Header to skip the ngrok browser warning:
 
-## 6. Summary / Next Steps
+```jsx
+const res = await fetch(`${API}/api/todo`, {
+  headers: { 'ngrok-skip-browser-warning': 'true' },
+});
+```
 
-### What you now have
 
-* **Client**: React app making HTTP requests.
-* **Server**: .NET app listening on a port.
-* **API contract**: `HTTP GET /api/todo` returns `200 OK` + `Hello World`.
-* **SOP/CORS**: why cross-origin calls are blocked by default and how to enable them.
-* **curl/Postman**: quick, browser-free API checks.
-* **ngrok**: public HTTPS tunnel to your local backend.
 
----
 
-## 7. Appendix — Full Reference Code
+## 6. Main Takeaways
+
+### What you can do now 😎
+
+* Spin up a **minimal React** app and a **minimal .NET** API.
+* Wire **client → server** via `fetch`.
+* Validate the API with **curl/Postman** before touching the frontend.
+* Enable **dev-only CORS** so the browser stops whining.
+* Expose your local backend with **ngrok** and point other clients at it.
+
+### 🧠 Core concepts
+
+* **Client**: Client (React) renders UI + makes HTTP requests.
+* **Server** Server (.NET) listens on a port + returns responses.
+* **API contract** `HTTP GET /api/todo` → `200 OK` + `"Hello World"`.
+* **Origin**: Origin (`scheme + host + port`). Different origin = cross-origin.
+* **SOP (Same-Origin Policy)** Browser blocks cross-origin JavaScript; **curl** doesn’t care.
+* **CORS** Server opt-in. Dev can use `AllowAnyOrigin()`; **never** ship that to prod.
+
+
+## 7. Full Reference Code
 
 ### frontendTodo/src/Main.jsx
 
 ```jsx
-import { useState } from 'react'
+import { useState } from 'react';
 
-const API = 'http://localhost:5000'
+const API = 'http://localhost:5000';  // or https://xxx.ngrok-free.app
 
 export default function Main() {
-  const [text, setText] = useState('')
+    const [text, setText] = useState('');
 
-  async function callApi() {
-    try {
-      const res = await fetch(`${API}/api/todo`)
-      const data = await res.text()
-      setText(data)
-    } catch {
-      setText('Request failed')
+    async function callApi() {
+        try {
+            // Call the Server API
+            const res = await fetch(`${API}/api/todo`, {
+                headers: { 'ngrok-skip-browser-warning': 'true' },
+            });
+            const data = await res.text();
+
+            // Set text in <h1>, then React re-renders HTML
+            setText(data);
+        } catch {
+            setText('Request failed');
+        }
     }
-  }
 
-  return (
-    <div>
-      <button onClick={callApi}>Call API</button>
-      <h1>{text}</h1>
-    </div>
-  )
+    // React renders this HTML
+    return (
+        <div>
+            <button onClick={callApi}>Call API</button>
+            <h1>{text}</h1>
+        </div>
+    )
 }
-```
-
-### frontendTodo/src/main.jsx
-
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Main from './Main.jsx'
-
-ReactDOM.createRoot(document.getElementById('root')).render(<Main />)
 ```
 
 ### backendTodo/Program.cs (dev-only CORS)
@@ -391,7 +455,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<Main />)
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-// dev-only CORS
+// Define CORS Headers (do this only for local dev)
 builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(p => p
@@ -402,14 +466,19 @@ builder.Services.AddCors(o =>
 
 var app = builder.Build();
 
+// Must be before endpoints
 app.UseCors();
 
+// Define API Contract (endpoint)
 app.MapGet("/api/todo", () => "Hello World");
 
+// Runs the Server on the specified port
 app.Run();
 ```
 
-### Handy commands
+## 8. Command Cheat Sheet
+
+### Run Server and Client
 
 ```sh
 # Run Server
@@ -423,4 +492,14 @@ curl http://localhost:5000/api/todo
 
 # Share Server with ngrok (backend must be running)
 ngrok http http://localhost:5000
+```
+
+### Process management
+
+```sh
+ps aux | grep dotnet                   # list processes
+ps aux | grep node
+ps aux | grep ngrok
+
+kill -9 <PID>                          # kill by PID
 ```
