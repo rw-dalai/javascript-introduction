@@ -168,7 +168,7 @@ npm create vite@latest . -- --template react
 npm install
 ```
 
-* Replace: `src/Main.jsx`:
+* Replace: `src/App.jsx`:
 
 ```jsx
 // This is your first React component
@@ -196,7 +196,7 @@ npm run dev -- --port 3000        # specify port if needed
 
 Call the Server API from the React Client.
 
-* Edit: `src/Main.jsx`
+* Edit: `src/App.jsx`
 
 ```jsx
 import { useState } from 'react'
@@ -376,7 +376,7 @@ curl https://abcd-xyz.ngrok-free.app/api/todo
 
 We call the public ngrok URL which then tunnels to our local machine where our server is running.
 
-* Edit Client `src/Main.jsx` to point to the ngrok Endpoint:
+* Edit Client `src/App.jsx` to point to the ngrok Endpoint:
 
 ```jsx
 // Ngrok URL that tunnels to your local server
@@ -412,7 +412,7 @@ const res = await fetch(`${API}/api/todo`, {
 
 ## 7. Full Reference Code
 
-### frontendTodo/src/Main.jsx
+### frontendTodo/src/App.jsx
 
 ```jsx
 import { useState } from 'react';
