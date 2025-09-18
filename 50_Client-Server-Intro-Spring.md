@@ -164,9 +164,14 @@ Hello World
 [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
 
-* Postman API Specification (Optional):
+* Postman API Specification (Optional Read):
 
 [https://www.postman.com/product/spec-hub/](https://www.postman.com/product/spec-hub/)
+
+
+* Open API Specification (Optional Read):
+
+[https://www.openapis.org/](https://www.openapis.org/)
 
   
 
