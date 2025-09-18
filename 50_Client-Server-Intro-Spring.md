@@ -54,7 +54,7 @@ git clone https://github.com/<you>/frontendTodo.git
 git clone https://github.com/<you>/backendTodo.git
 ```
 
-### Step 2 — Create Server (Spring Boot Minimal API)
+### Step 2 — Create Server (Java, Spring Boot)
 
 Create a minimal Spring Boot Web project.
 
@@ -83,30 +83,35 @@ curl https://start.spring.io/starter.zip \
 unzip -o backendTodo.zip -d .
 ```
 
-* **Run Server on port 5000 (no config file):**
+* **Run Server:**
+
+By default, Spring Boot runs on port `8080`. But you can specify a different port.
 
 ```sh
-./gradlew bootRun
+./gradlew bootRun                             # default port 8080
 ./gradlew bootRun --args='--server.port=5000' # specify port if needed
-# Windows: .\gradlew.bat bootRun --args="--server.port=5000"
 ```
 
 ### Step 3 - API Contract
 
-Create a minimal API endpoint.
+* Define an Web API Endpoint:
 
-* Define an API contract:  
-
-  `HTTP GET /api/todo` returns `200 OK` + `Hello World`.  
-  `200 OK` is the HTTP status code for a successful request.
+We create a simple API endpoint that returns a greeting.
 
 
-* Add **Controller** `src/main/java/com/example/backendtodo/TodoController.java`:
+  | **Description**   | **Protocol + Verb** | **Path**    | **Response**    |
+  | ----------------- | ------------------- | ----------- |-----------------|
+  | Return a greeting | HTTP GET            | `/api/todo` | `"Hello World"` |
+
+
+
+* Add **Controller** `src/main/java/com/example/backendTodo/TodoController.java`:
+
+A controller class handles incoming HTTP requests. Each method in the controller corresponds to an API endpoint.
 
 ```java
-package com.example.backendtodo;
+package com.example.backendTodo;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -122,10 +127,10 @@ public class TodoController {
 }
 ```
 
-* Restart Server on port 5000:
+* Restart Server:
 
 ```sh
-./gradlew bootRun --args='--server.port=5000'
+./gradlew bootRun
 ```
 
 ### Step 4 — Test API Contract
@@ -136,14 +141,14 @@ Verify server works before wiring the frontend.
 
 ```sh
 # HTTP GET /api/todo
-curl -v -X GET http://localhost:5000/api/todo
+curl -v -X GET http://localhost:8080/api/todo
 ```
 
 * Expected output:
 
 ```
 > GET /api/todo HTTP/1.1
-> Host: localhost:5000
+> Host: localhost:8080
 > User-Agent: curl/7.81.0
 > Accept: */*
 >
@@ -154,17 +159,32 @@ curl -v -X GET http://localhost:5000/api/todo
 Hello World
 ```
 
+* Use Postman (backend must be running):
 
-### Step 5 — Create Client (Vite, JavaScript)
+[https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
-Create a minimal React app with Vite.
+
+* Postman API Specification (Optional):
+
+[https://www.postman.com/product/spec-hub/](https://www.postman.com/product/spec-hub/)
+
+  
+
+
+### Step 5 — Create Client (JavaScript, React)
+
+Create a minimal React app with Vite. Vite is a modern build tool for frontend projects.
 
 * Scaffold project:
 
 ```sh
-cd ../frontendTodo
+# Switch to the frontend repo
+cd frontendTodo
+
+# Create a minimal React app in the current directory
 npm create vite@latest . -- --template react
-# or npm create vite@latest .
+
+# Do not forget to install dependencies
 npm install
 ```
 
@@ -188,7 +208,7 @@ export default App
 * Run Client:
 
 ```sh
-npm run dev
+npm run dev                       # default port 5173
 npm run dev -- --port 3000        # specify port if needed
 ```
 
@@ -196,12 +216,12 @@ npm run dev -- --port 3000        # specify port if needed
 
 Call the Server API from the React Client.
 
-* Edit: `src/App.jsx`
+* Edit: `src/App.jsx`:
 
 ```jsx
 import { useState } from 'react'
 
-const API = 'http://localhost:5000';  // Point to the Server
+const API = 'http://localhost:8080';  // Point to the Server
 
 export default function Main() {
   const [text, setText] = useState('');
@@ -235,12 +255,12 @@ Push your work; teammates can pull and run locally.
 
 ```sh
 # You
-cd ../frontendTodo
+cd frontendTodo
 git add .
 git commit -m "create minimal client"
 git push
 
-cd ../backendTodo
+cd backendTodo
 git add .
 git commit -m "create minimal server"
 git push
@@ -262,14 +282,14 @@ Now run both the Client and Server locally to see the full flow. You have to ope
 
 ```sh
 cd backendTodo
-./gradlew bootRun --args='--server.port=5000'   # server on port 5000
+./gradlew bootRun
 ```
 
 * Terminal B (Client):
 
 ```sh
 cd frontendTodo
-npm run dev -- --port 3000                      # run client on port 3000
+npm run dev
 ```
 
 * Open the frontend URL → click **Call API**.  
@@ -283,7 +303,7 @@ npm run dev -- --port 3000                      # run client on port 3000
 A schema in the form of `protocol://host:port/path?query`.  
 The URI identifies a resource on the internet (e.g., a web page, an API endpoint).
 
-* **Example:** `http://localhost:5000/api/todo`, `https://www.orf.at/news`
+* **Example:** `http://localhost:8080/api/todo`, `https://www.orf.at/news`
 * **Definition:** A `URI` (Uniform Resource Identifier) is a string that identifies a resource on the internet.
 
 **What is an Origin?**
@@ -291,7 +311,7 @@ The URI identifies a resource on the internet (e.g., a web page, an API endpoint
 A schema in the form of `protocol://host:port`.
 When two URLs have the same schema, they have the same origin.
 
-* **Example:** `http://localhost:5000`, `https://www.orf.at:443`
+* **Example:** `http://localhost:8080`, `https://www.orf.at:443`
 * **Scheme:** Protocol (http, https, etc.).
 * **Host:** Domain or IP address of a server.
 * **Port:** A number to distinguish multiple services on one host.
@@ -312,7 +332,7 @@ Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
 
 * **Why?** To enable cross-origin access in a controlled manner.
 * **Who?** The server must explicitly allow cross-origin requests by sending specific HTTP headers. (e.g., `Access-Control-Allow-Origin`).
-* **Example:** Our Client at origin `http://localhost:3000` calls server at origin `http://localhost:5000` → server must allow it via CORS headers.
+* **Example:** Our Client at origin `http://localhost:5173` calls server at origin `http://localhost:8080` → server must allow it via CORS headers.
 
 ### Step 9 — Fix CORS (dev-only)
 
@@ -330,10 +350,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class TodoController { /* ... */ }
 ```
 
-* Restart Server on port 5000:
+* Restart Server:
 
 ```sh
-./gradlew bootRun --args='--server.port=5000'
+cd backendTodo
+./gradlew bootRun
 ```
 
 **Common pitfalls**
@@ -363,7 +384,7 @@ ngrok config check
 * Run the ngrok tunnel (backend must be running):
 
 ```sh
-ngrok http http://localhost:5000
+ngrok http http://localhost:8080
 ```
 
 **Verify**
@@ -405,10 +426,18 @@ const res = await fetch(`${API}/api/todo`, {
 
 * **Client**: Client (React) renders UI + makes HTTP requests.
 * **Server** Server (Spring Boot) listens on a port + returns responses.
-* **API contract** `HTTP GET /api/todo` → `200 OK` + `"Hello World"`.
+* **API contract** `HTTP GET /api/todo` → `"Hello World"`.
 * **Origin**: Origin (`scheme + host + port`). Different origin = cross-origin.
 * **SOP (Same-Origin Policy)** Browser blocks cross-origin JavaScript; **curl** doesn’t care.
 * **CORS** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
+
+
+* **CORS Error**: Thats what a CORS error looks like in the browser console if the client and the server have different origins:  
+![img_6.png](img_6.png)
+
+
+* **CORS Header**: Thats what a CORS header looks like when the server allows cross-origin requests:  
+![img_7.png](img_7.png)
 
 ## 7. Full Reference Code
 
@@ -417,7 +446,7 @@ const res = await fetch(`${API}/api/todo`, {
 ```jsx
 import { useState } from 'react';
 
-const API = 'http://localhost:5000';  // or https://xxx.ngrok-free.app
+const API = 'http://localhost:8080';  // or https://xxx.ngrok-free.app
 
 export default function Main() {
     const [text, setText] = useState('');
@@ -446,24 +475,25 @@ export default function Main() {
     )
 }
 ```
-### backendTodo/src/main/java/com/example/backendtodo/TodoController.java
+### backendTodo/src/main/java/com/example/backendTodo/TodoController.java
 
 ```java
-package com.example.backendtodo;
+package com.example.backendTodo;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*") // dev-only
 public class TodoController {
 
-    @GetMapping("/todo")
-    public ResponseEntity<String> todo() {
-        return ResponseEntity.ok("Hello World");
-    }
+  @GetMapping("/todo")
+  public String todo() {
+    return "Hello World";
+  }
 }
 ```
 
@@ -477,13 +507,14 @@ public class TodoController {
 ./gradlew bootRun --args='--server.port=5000'
 
 # Run Client
+npm run dev # default port 5173
 npm run dev -- --port 3000
 
 # Test Server API (backend must be running)
-curl http://localhost:5000/api/todo
+curl http://localhost:8080/api/todo
 
 # Share Server with ngrok (backend must be running)
-ngrok http http://localhost:5000
+ngrok http http://localhost:8080
 ```
 
 ### Process management
