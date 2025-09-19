@@ -42,7 +42,8 @@ curl --version                    # prints version
 
 ### Step 1 — Initialize GitHub repositories
 
-Go to GitHub and create two empty GitHub repos: `frontendTodo` and `backendTodo`.
+Go to GitHub and create two empty GitHub repos: `frontendTodo` and `backendTodo`.   
+Include a `README.md` and `.gitignore` (Node for frontend, Java for backend).
 
 * Clone both repos locally:
 
@@ -96,14 +97,14 @@ By default, Spring Boot runs on port `8080`. But you can specify a different por
 
 * Define an Web API Endpoint:
 
-We create a simple API endpoint that returns a greeting.
+We create a simple API endpoint that returns a greeting. API Contracts include at least parts:
 
 
-  | **Description**   | **Protocol + Verb** | **Path**      | **Response**    |
-  | ----------------- | ------------------- |---------------|-----------------|
-  | Return a greeting | HTTP GET            | `/api/todos`  | `"Hello World"` |
+| **Description**   | **Protocol + Verb** | **Path**      | **Response**    | Response Status |
+| ----------------- | ------------------- |---------------|-----------------|-----------------|
+| Return a greeting | HTTP GET            | `/api/todos`  | `"Hello World"` | 200 OK          |
 
-
+Hence our API endpoint is reachable via `HTTP GET /api/todos` on that host and port where our server is running.
 
 * Add **Controller** `src/main/java/com/example/backendTodo/TodoController.java`:
 
@@ -120,7 +121,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class TodoController {
 
-    @GetMapping("/todo")
+    // Define API Contract (API endpoint)
+    @GetMapping("/todos")
     public String todo() {
         return "Hello World";
     }
@@ -140,7 +142,7 @@ Verify server works before wiring the frontend.
 * Use CURL (backend must be running):
 
 ```sh
-# HTTP GET /api/todos
+# Call API Endpoint
 curl -v -X GET http://localhost:8080/api/todos
 ```
 
@@ -159,7 +161,7 @@ curl -v -X GET http://localhost:8080/api/todos
 Hello World
 ```
 
-* Use Postman (backend must be running):
+* Use Postman to test your API Endpoint (Optional):
 
 [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
@@ -178,7 +180,8 @@ Hello World
 
 ### Step 5 — Create Client (JavaScript, React)
 
-Create a minimal React app with Vite. Vite is a modern build tool for frontend projects.
+Create a minimal React app with Vite. Vite is a modern build tool for frontend projects.  
+[https://vite.dev/](https://vite.dev/)
 
 * Scaffold project:
 
@@ -226,7 +229,7 @@ Call the Server API from the React Client.
 ```jsx
 import { useState } from 'react'
 
-const API = 'http://localhost:8080';  // Point to the Server
+const API = 'http://localhost:8080';  // Point to the Server URL
 
 export default function Main() {
   const [text, setText] = useState('');
@@ -365,7 +368,6 @@ cd backendTodo
 
 * **Prod Caution:** Don’t ship `*` in production; pin your origins or better ensure all run on same origin.
 
----
 
 ### Step 10 — Expose Server via ngrok tunnel
 

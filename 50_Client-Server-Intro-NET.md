@@ -43,7 +43,8 @@ curl --version                    # prints version
 
 ### Step 1 — Initialize GitHub repositories
 
-Go to GitHub and create two empty GitHub repos: `frontendTodo` and `backendTodo`.
+Go to GitHub and create two empty GitHub repos: `frontendTodo` and `backendTodo`.  
+Include a `README.md` and `.gitignore` (Node for frontend, DotNet for backend).
 
 * Clone both repos locally:
 
@@ -79,21 +80,23 @@ app.Run();
 * Run Server:
 
 ```sh
-dotnet run
+dotnet run                               # Properties/launchSettings.json specifies the port
 dotnet run --urls http://localhost:5000  # specify port if needed
 ```
 
 
 ### Step 3 - API Contract
 
-Create a minimal API endpoint
+* Define an Web API Endpoint:
 
-* Define an API contract:  
+We create a simple API endpoint that returns a greeting. API Contracts include at least parts:
 
-`HTTP GET /api/todo` returns `200 OK` + `Hello World`.  
-`200 OK` is the HTTP status code for a successful request.  
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 
+| **Description**   | **Protocol + Verb** | **Path**      | **Response**    | Response Status |
+| ----------------- | ------------------- |---------------|-----------------|-----------------|
+| Return a greeting | HTTP GET            | `/api/todos`  | `"Hello World"` | 200 OK          |
+
+Hence our API endpoint is reachable via `HTTP GET /api/todos` on that host and port where our server is running.
 
 * Edit: `Program.cs`:
 
@@ -101,10 +104,16 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// Define API Contract (endpoint)
-app.MapGet("/api/todo", () => "Hello World");
+// Define API Contract (API endpoint)
+app.MapGet("/api/todos", () => "Hello World");
 
 app.Run();
+```
+
+* Restart Server:
+
+```sh
+dotnet run --urls http://localhost:5000
 ```
 
 
@@ -116,14 +125,14 @@ Verify server works before wiring the frontend.
 * Use CURL (backend must be running):
 
 ```sh
-# HTTP GET /api/todo
-curl -v -X GET http://localhost:5000/api/todo
+# Call API Endpoint
+curl -v -X GET http://localhost:5000/api/todos
 ```
 
 * Expected output:
 
 ```
-> GET /api/todo HTTP/1.1
+> GET /api/todos HTTP/1.1
 > Host: localhost:5000
 > User-Agent: curl/7.81.0
 > Accept: */*
@@ -137,17 +146,36 @@ curl -v -X GET http://localhost:5000/api/todo
 Hello World
 ```
 
+* Use Postman to test your API Endpoint (Optional):
+
+[https://www.postman.com/downloads/](https://www.postman.com/downloads/)
+
+
+* Postman API Specification (Optional Read):
+
+[https://www.postman.com/product/spec-hub/](https://www.postman.com/product/spec-hub/)
+
+
+* Open API Specification (Optional Read):
+
+[https://www.openapis.org/](https://www.openapis.org/)
+
 
 ### Step 5 — Create Client (Vite, JavaScript)
 
-Create a minimal React app with Vite.
+Create a minimal React app with Vite. Vite is a modern build tool for frontend projects.  
+[https://vite.dev/](https://vite.dev/)
 
 * Scaffold project:
 
 ```sh
+# Switch to the frontend repo
 cd frontendTodo
+
+# Create a minimal React app in the current directory
 npm create vite@latest . -- --template react
-# or npm create vite@latest .
+
+# Do not forget to install dependencies
 npm install
 ```
 
@@ -185,7 +213,7 @@ Call the Server API from the React Client.
 ```jsx
 import { useState } from 'react'
 
-const API = 'http://localhost:5000';  // Point to the Server
+const API = 'http://localhost:5000';  // Point to the Server URL
 
 export default function Main() {
   const [text, setText] = useState('');
@@ -193,7 +221,7 @@ export default function Main() {
   async function callApi() {
     try {
       // Call the Server API
-      const res = await fetch(`${API}/api/todo`);
+      const res = await fetch(`${API}/api/todos`);
       const data = await res.text();
 
     // Set text in <h1>, then React re-renders HTML
@@ -248,14 +276,14 @@ Now run both the Client and Server locally to see the full flow. You have to ope
 
 ```sh
 cd backendTodo
-dotnet run --urls http://localhost:5000 # run server on port 5000
+dotnet run --urls http://localhost:5000
 ```
 
 * Terminal B (Client):
 
 ```sh
 cd frontendTodo
-npm run dev -- --port 3000 # run client on port 3000
+npm run dev
 ```
 
 * Open the frontend URL → click **Call API**.   
@@ -270,15 +298,14 @@ What's the result in the Developer Console (Windows F12, Mac Cmd+Opt+I)?
 A schema in the form of `protocol://host:port/path?query`.  
 The URI identifies a resource on the internet (e.g., a web page, an API endpoint).
 
-* **Example:** `http://localhost:5000/api/todo`, `https://wwww.orf.at/news`
-* **Definition:** A `URI` (Uniform Resource Identifier) is a string that identifies a resource on the internet.
+* **Example:** `http://localhost:5000/api/todos`, `https://www.orf.at/news`
 
 **What is an Origin?**
 
-A schema in the form of `protocol://host:port`.  
+A schema in the form of `protocol://host:port`.
 When two URLs have the same schema, they have the same origin.
 
-* **Example:** `http://localhost:5000, `https://www.orf.at:443`
+* **Example:** `http://localhost:5000`, `https://www.orf.at:443`
 * **Scheme:** Protocol (http, https, etc.).
 * **Host:** Domain or IP address of a server.
 * **Port:** A number to distinguish multiple services on one host.
@@ -291,7 +318,7 @@ Same Origin Policy is a security measure implemented by browsers to isolate web 
 
 * **Why?** To prevent malicious websites from accessing sensitive data on each other.
 * **Who?** Enforced by web browsers.
-* **Example:** https://malicious.com cannot read data from https://bank.com.
+* **Example:** [https://malicious.com](https://malicious.com) cannot read data from [https://bank.com](https://bank.com).
 
 **CORS**
 
@@ -299,7 +326,7 @@ Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
 
 * **Why?** To enable cross-origin access in a controlled manner.
 * **Who?** The server must explicitly allow cross-origin requests by sending specific HTTP headers. (e.g., `Access-Control-Allow-Origin`).
-* **Example:** Our Client at origin `http://localhost:3000` calls server at origin `http://localhost:5000` → server must allow it via CORS headers.
+* **Example:** Our Client at origin `http://localhost:5173` calls server at origin `http://localhost:5000` → server must allow it via CORS headers.
 
 
 ### Step 9 — Fix CORS (dev-only)
@@ -326,7 +353,7 @@ var app = builder.Build();
 app.UseCors();
 
 // Define API Contract (endpoint)
-app.MapGet("/api/todo", () => "Hello World");
+app.MapGet("/api/todos", () => "Hello World");
 
 app.Run();
 ```
@@ -335,10 +362,9 @@ app.Run();
 
 **Common pitfalls**
 
-* **UseCors Order**: Call `app.UseCors()` before mapping endpoints.
-* **Prod Caution**: Don’t ship `AllowAnyOrigin` to production.
+* **Prod Caution:** Don’t ship `*` in production; pin your origins or better ensure all run on same origin.
+* **Order matters:** `app.UseCors()` must be before `app.MapGet(...)`.
 
----
 
 ### Step 10 — Expose Server via ngrok tunnel
 
@@ -368,7 +394,7 @@ ngrok http http://localhost:5000
 **Verify**
 
 ```sh
-curl https://abcd-xyz.ngrok-free.app/api/todo
+curl https://abcd-xyz.ngrok-free.app/api/todos
 ```
 
 ### Step 11 — Call ngrok from Client
@@ -385,19 +411,16 @@ const API = 'https://xxx.ngrok-free.app';
 * Then add an HTTP Header to skip the ngrok browser warning:
 
 ```jsx
-const res = await fetch(`${API}/api/todo`, {
+const res = await fetch(`${API}/api/todos`, {
   headers: { 'ngrok-skip-browser-warning': 'true' },
 });
 ```
-
-
-
 
 ## 6. Main Takeaways
 
 ### What you can do now 😎
 
-* Spin up a **minimal React** app and a **minimal .NET** API.
+* Spin up a **minimal React** app and a **minimal Spring Boot** API.
 * Wire **client → server** via `fetch`.
 * Validate the API with **curl/Postman** before touching the frontend.
 * Enable **dev-only CORS** so the browser stops whining.
@@ -405,12 +428,22 @@ const res = await fetch(`${API}/api/todo`, {
 
 ### Core concepts
 
-* **Client**: Client (React) renders UI + makes HTTP requests.
-* **Server** Server (.NET) listens on a port + returns responses.
-* **API contract** `HTTP GET /api/todo` → `200 OK` + `"Hello World"`.
-* **Origin**: Origin (`scheme + host + port`). Different origin = cross-origin.
+* **Client**: Client (React) renders UI + calls API endpoints.
+* **Server** Server (Spring Boot) implements API endpoints.
+* **HTTP Protocol**: Client and Server communicate via HTTP protocol.
+* **API contract** `HTTP GET /api/todos` → `"Hello World"`.
+* **Origin**: `protocol://host:port`. Different origin = cross-origin.
 * **SOP (Same-Origin Policy)** Browser blocks cross-origin JavaScript; **curl** doesn’t care.
-* **CORS** Server opt-in. Dev can use `AllowAnyOrigin()`; **never** ship that to prod.
+* **CORS (Cross Origin Resource Sharing)** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
+* **Ports**: A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
+
+
+* **CORS Error**: Thats what a CORS error looks like in the browser console if the client and the server have different origins:  
+  ![img_6.png](img_6.png)
+
+
+* **CORS Header**: Thats what a CORS header looks like when the server allows cross-origin requests:  
+  ![img_7.png](img_7.png)
 
 
 ## 7. Full Reference Code
@@ -428,7 +461,7 @@ export default function Main() {
     async function callApi() {
         try {
             // Call the Server API
-            const res = await fetch(`${API}/api/todo`, {
+            const res = await fetch(`${API}/api/todos`, {
                 headers: { 'ngrok-skip-browser-warning': 'true' },
             });
             const data = await res.text();
@@ -469,8 +502,8 @@ var app = builder.Build();
 // Must be before endpoints
 app.UseCors();
 
-// Define API Contract (endpoint)
-app.MapGet("/api/todo", () => "Hello World");
+// Define API Contract (API endpoint)
+app.MapGet("/api/todos", () => "Hello World");
 
 // Runs the Server on the specified port
 app.Run();
@@ -482,13 +515,15 @@ app.Run();
 
 ```sh
 # Run Server
+dotnet run # Properties/launchSettings.json specifies the port
 dotnet run --urls http://localhost:5000
 
 # Run Client
+npm run dev # default port 5173
 npm run dev -- --port 3000
 
 # Test Server API (backend must be running)
-curl http://localhost:5000/api/todo
+curl http://localhost:5000/api/todos
 
 # Share Server with ngrok (backend must be running)
 ngrok http http://localhost:5000
