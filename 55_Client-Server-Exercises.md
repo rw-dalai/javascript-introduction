@@ -53,14 +53,16 @@
 
 ## New API Endpoint (Todo List)
 
-> Needs Research 🫡
+> Hard, needs research ! 💪
 
-* **E1.** Implement the new API endpoint **on the server** that returns a list of todo items as JSON.
-  * Use curl or Postman to verify the response is a JSON array of todos.
+* Following API contract, implement a new API endpoint that returns a list of todo items as JSON.
 
 | **Description**      | **Protocol + Verb** | **Path**     | **Response**                                     | **Response Status** |
 | -------------------- | ------------------- |--------------|--------------------------------------------------|---------------------|
-| Return list of todos | HTTP GET            | `/api/todos` | `[{ "id": 1, "title": "Learn Programming",.. }]` |                     |
+| Return list of todos | HTTP GET            | `/api/todos` | `[{ "id": 1, "title": "Learn Programming",.. }]` | 200 OK              |
+
+* **E1.** Implement the new API endpoint **on the server** that returns a list of todo items as JSON.
+  * Use curl or Postman to verify the response is a JSON array of todos.
 
 
 * **E2.** Call the new API endpoint **on the client** and render the list of todos.
