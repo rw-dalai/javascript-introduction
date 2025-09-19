@@ -99,9 +99,9 @@ By default, Spring Boot runs on port `8080`. But you can specify a different por
 We create a simple API endpoint that returns a greeting.
 
 
-  | **Description**   | **Protocol + Verb** | **Path**    | **Response**    |
-  | ----------------- | ------------------- | ----------- |-----------------|
-  | Return a greeting | HTTP GET            | `/api/todo` | `"Hello World"` |
+  | **Description**   | **Protocol + Verb** | **Path**      | **Response**    |
+  | ----------------- | ------------------- |---------------|-----------------|
+  | Return a greeting | HTTP GET            | `/api/todos`  | `"Hello World"` |
 
 
 
@@ -140,14 +140,14 @@ Verify server works before wiring the frontend.
 * Use CURL (backend must be running):
 
 ```sh
-# HTTP GET /api/todo
-curl -v -X GET http://localhost:8080/api/todo
+# HTTP GET /api/todos
+curl -v -X GET http://localhost:8080/api/todos
 ```
 
 * Expected output:
 
 ```
-> GET /api/todo HTTP/1.1
+> GET /api/todos HTTP/1.1
 > Host: localhost:8080
 > User-Agent: curl/7.81.0
 > Accept: */*
@@ -234,7 +234,7 @@ export default function Main() {
   async function callApi() {
     try {
       // Call the Server API
-      const res = await fetch(`${API}/api/todo`);
+      const res = await fetch(`${API}/api/todos`);
       const data = await res.text();
 
       // Set text in <h1>, then React re-renders HTML
@@ -308,12 +308,11 @@ npm run dev
 A schema in the form of `protocol://host:port/path?query`.  
 The URI identifies a resource on the internet (e.g., a web page, an API endpoint).
 
-* **Example:** `http://localhost:8080/api/todo`, `https://www.orf.at/news`
-* **Definition:** A `URI` (Uniform Resource Identifier) is a string that identifies a resource on the internet.
+* **Example:** `http://localhost:8080/api/todos`, `https://www.orf.at/news`
 
 **What is an Origin?**
 
-A schema in the form of `protocol://host:port`.
+A schema in the form of `protocol://host:port`. 
 When two URLs have the same schema, they have the same origin.
 
 * **Example:** `http://localhost:8080`, `https://www.orf.at:443`
@@ -364,7 +363,7 @@ cd backendTodo
 
 **Common pitfalls**
 
-* **Prod Caution:** Don’t ship `*` in production; pin your origins.
+* **Prod Caution:** Don’t ship `*` in production; pin your origins or better ensure all run on same origin.
 
 ---
 
@@ -395,7 +394,7 @@ ngrok http http://localhost:8080
 **Verify**
 
 ```sh
-curl https://abcd-xyz.ngrok-free.app/api/todo
+curl https://abcd-xyz.ngrok-free.app/api/todos
 ```
 
 ### Step 11 — Call ngrok from Client
@@ -412,7 +411,7 @@ const API = 'https://xxx.ngrok-free.app';
 * Then add an HTTP Header to skip the ngrok browser warning:
 
 ```jsx
-const res = await fetch(`${API}/api/todo`, {
+const res = await fetch(`${API}/api/todos`, {
   headers: { 'ngrok-skip-browser-warning': 'true' },
 });
 ```
@@ -427,14 +426,16 @@ const res = await fetch(`${API}/api/todo`, {
 * Enable **dev-only CORS** so the browser stops whining.
 * Expose your local backend with **ngrok** and point other clients at it.
 
-### Core concepts
+### Core concepts 
 
-* **Client**: Client (React) renders UI + makes HTTP requests.
-* **Server** Server (Spring Boot) listens on a port + returns responses.
-* **API contract** `HTTP GET /api/todo` → `"Hello World"`.
-* **Origin**: Origin (`scheme + host + port`). Different origin = cross-origin.
+* **Client**: Client (React) renders UI + calls API endpoints.
+* **Server** Server (Spring Boot) implements API endpoints.
+* **HTTP Protocol**: Client and Server communicate via HTTP protocol.
+* **API contract** `HTTP GET /api/todos` → `"Hello World"`.
+* **Origin**: `protocol://host:port`. Different origin = cross-origin.
 * **SOP (Same-Origin Policy)** Browser blocks cross-origin JavaScript; **curl** doesn’t care.
-* **CORS** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
+* **CORS (Cross Origin Resource Sharing)** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
+* **Ports**: A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
 
 
 * **CORS Error**: Thats what a CORS error looks like in the browser console if the client and the server have different origins:  
@@ -459,7 +460,7 @@ export default function Main() {
     async function callApi() {
         try {
             // Call the Server API
-            const res = await fetch(`${API}/api/todo`, {
+            const res = await fetch(`${API}/api/todos`, {
                 headers: { 'ngrok-skip-browser-warning': 'true' },
             });
             const data = await res.text();
@@ -516,7 +517,7 @@ npm run dev # default port 5173
 npm run dev -- --port 3000
 
 # Test Server API (backend must be running)
-curl http://localhost:8080/api/todo
+curl http://localhost:8080/api/todos
 
 # Share Server with ngrok (backend must be running)
 ngrok http http://localhost:8080
