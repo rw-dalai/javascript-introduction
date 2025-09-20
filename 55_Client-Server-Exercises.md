@@ -39,17 +39,24 @@
 
 ## CORS & Origins
 
-* **Q1.** For each pair, decide **Same Origin** or **Cross Origin**:
+* **Q1.** For each pair, decide **Same Origin** or **Cross Origin**:  
 
   * `http://localhost:5173` → `http://localhost:8080`
   * `http://localhost:3000` → `http://127.0.0.1:3000`
   * `https://app.example.com` → `https://api.example.com`
   * `http://localhost:5000` → `https://localhost:5000`
   * `https://foo.example.com:443` → `https://foo.example.com`
-  
 
-* **Q2.** Why does `Allow-Origin: *` work for class demos but not for production?
+## CORS & Errors
 
+* **Q1.** What is happening on a CORS error?
+* **Q2.** Does the request reach the server?
+* **Q3.** Does the browser receive a response?
+* **Q4.** Can JavaScript get the response?
+* **Q5.** Where do you see the error message?
+* **Q6.** How to fix it? (dev-only solution)?
+* **Q7.** Why does `Allow-Origin: *` work for class demos but not for production?
+* **Q8.** Why does `curl` ignore CORS but browsers don’t?
 
 ## HTTP & Testing
 
@@ -60,14 +67,12 @@
 * **E2.** What happens if you access a server that is running but the path does not exist (e.g. `/api/unknown`)?
   * What error do you expect from curl and from the browser?
 
-
 ## Ngrok 
 
 > Forwarding https://d29dae378e59.ngrok-free.app -> http://localhost:6150
 
 * **Q1.** What does the following ngrok output mean?
 * **Q2**. Which URL do you use to access the Server API?
-
 
 ## Implement API Endpoint
 
