@@ -324,6 +324,11 @@ Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
 * **Who?** The server must explicitly allow cross-origin requests by sending specific HTTP headers. (e.g., `Access-Control-Allow-Origin`).
 * **Example:** Our Client at origin `http://localhost:5173` calls server at origin `http://localhost:5000` → server must allow it via CORS headers.
 
+**CORS Error**
+
+That's what a CORS error looks like in the browser console if the client and the server have different origins:
+
+![img_6.png](img_6.png)
 
 ### Step 9 — Fix CORS (dev-only)
 
@@ -348,13 +353,25 @@ var app = builder.Build();
 // Must be before endpoints
 app.UseCors();
 
-// Define API Contract (endpoint)
+// Implement API Contract (endpoint)
 app.MapGet("/api/todos", () => "Hello World");
 
 app.Run();
 ```
 
-* Restart Server and test again, now it should work.
+* Restart Server:
+
+```sh
+cd backendTodo
+dotnet run --urls http://localhost:5000
+```
+
+**CORS Header**
+
+That's what a CORS header looks like when the server allows cross-origin requests:
+
+![img_7.png](img_7.png)
+
 
 **Common pitfalls**
 
@@ -433,15 +450,6 @@ const res = await fetch(`${API}/api/todos`, {
 * **CORS (Cross Origin Resource Sharing):** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
 * **Ports:** A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
 
-
-* **CORS Error:** That's what a CORS error looks like in the browser console if the client and the server have different origins:  
-  ![img_6.png](img_6.png)
-
-
-* **CORS Header:** That's what a CORS header looks like when the server allows cross-origin requests:  
-  ![img_7.png](img_7.png)
-
-
 ## 7. Full Reference Code
 
 ### frontendTodo/src/App.jsx
@@ -484,7 +492,7 @@ export default function Main() {
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-// Define CORS Headers (do this only for local dev)
+// Implement CORS Headers (do this only for local dev)
 builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(p => p
@@ -498,7 +506,7 @@ var app = builder.Build();
 // Must be before endpoints
 app.UseCors();
 
-// Define API Contract (API endpoint)
+// Implement API Contract (API endpoint)
 app.MapGet("/api/todos", () => "Hello World");
 
 // Runs the Server on the specified port
