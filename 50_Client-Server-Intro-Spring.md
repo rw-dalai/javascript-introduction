@@ -434,13 +434,9 @@ const res = await fetch(`${API}/api/todos`, {
 * **SOP (Same-Origin Policy):** Browser blocks cross-origin JavaScript for security reasons; **curl** doesn’t care.
 * **CORS (Cross Origin Resource Sharing):** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
 * **Ports:** A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
-
-
-* **CORS Error:** That's what a CORS error looks like in the browser console if the client and the server have different origins:  
+* **CORS Error:** That's what a CORS error looks like in the browser console if the client and the server have different origins:
 ![img_6.png](img_6.png)
-
-
-* **CORS Header:** That's what a CORS header looks like when the server allows cross-origin requests:  
+* **CORS Header:** That's what a CORS header looks like when the server allows cross-origin requests:
 ![img_7.png](img_7.png)
 
 ## 7. Full Reference Code
