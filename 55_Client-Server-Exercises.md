@@ -17,7 +17,6 @@
 * **Q13.** Which approach does our client use: SSR or SPA?
 * **Q14.** After a button click, does the client request a new HTML page or data?
 
-
 ## HTTP Basics
 
 * **Q1.** What is the **HTTP Protocol**?
@@ -27,6 +26,14 @@
 * **Q5.** How can you see the full HTTP request and response in the browser?
 * **Q6.** How can you see the full HTTP request and response using curl?
 
+## HTTP & Testing
+
+* **E1.** What happens if you access a server that is not running?
+  *  What error do you expect from curl and from the browser?
+
+
+* **E2.** What happens if you access a server that is running but the path does not exist (e.g. `/api/unknown`)?
+  * What error do you expect from curl and from the browser?
 
 ## API Contract
 
@@ -57,15 +64,6 @@
 * **Q6.** How to fix it? (dev-only solution)?
 * **Q7.** Why does `Allow-Origin: *` work for class demos but not for production?
 * **Q8.** Why does `curl` ignore CORS but browsers don’t?
-
-## HTTP & Testing
-
-* **E1.** What happens if you access a server that is not running?
-  *  What error do you expect from curl and from the browser?
-
-
-* **E2.** What happens if you access a server that is running but the path does not exist (e.g. `/api/unknown`)?
-  * What error do you expect from curl and from the browser?
 
 ## Ngrok 
 
