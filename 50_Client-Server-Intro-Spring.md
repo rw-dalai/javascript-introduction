@@ -329,13 +329,19 @@ Same Origin Policy is a security measure implemented by browsers to isolate web 
 * **Who?** Enforced by web browsers.
 * **Example:** [https://malicious.com](https://malicious.com) cannot read data from [https://bank.com](https://bank.com).
 
-**CORS**
+**What is CORS?**
 
 Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
 
 * **Why?** To enable cross-origin access in a controlled manner.
 * **Who?** The server must explicitly allow cross-origin requests by sending specific HTTP headers. (e.g., `Access-Control-Allow-Origin`).
 * **Example:** Our Client at origin `http://localhost:5173` calls server at origin `http://localhost:8080` → server must allow it via CORS headers.
+
+**CORS Error**
+
+That's what a CORS error looks like in the browser console if the client and the server have different origins:  
+
+  ![img_6.png](img_6.png)
 
 ### Step 9 — Fix CORS (dev-only)
 
@@ -359,6 +365,12 @@ public class TodoController { /* ... */ }
 cd backendTodo
 ./gradlew bootRun
 ```
+
+**CORS Header**
+
+That's what a CORS header looks like when the server allows cross-origin requests:  
+
+  ![img_7.png](img_7.png)
 
 **Common pitfalls**
 
@@ -434,10 +446,6 @@ const res = await fetch(`${API}/api/todos`, {
 * **SOP (Same-Origin Policy):** Browser blocks cross-origin JavaScript for security reasons; **curl** doesn’t care.
 * **CORS (Cross Origin Resource Sharing):** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
 * **Ports:** A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
-* **CORS Error:** That's what a CORS error looks like in the browser console if the client and the server have different origins:
-![img_6.png](img_6.png)
-* **CORS Header:** That's what a CORS header looks like when the server allows cross-origin requests:
-![img_7.png](img_7.png)
 
 ## 7. Full Reference Code
 
@@ -487,7 +495,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*") // dev-only
+@CrossOrigin(origins = "*") // Implement CORS Headers (do this only for local dev)
 public class TodoController {
 
   @GetMapping("/todo")
