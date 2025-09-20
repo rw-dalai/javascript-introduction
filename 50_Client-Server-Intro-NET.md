@@ -308,7 +308,7 @@ When two URLs have the same schema, they have the same origin.
 
 ### Understand SOP and CORS
 
-* **What is SOP?**
+**What is SOP?**
 
 Same Origin Policy is a security measure implemented by browsers to isolate web pages from different origins.
 
@@ -316,7 +316,7 @@ Same Origin Policy is a security measure implemented by browsers to isolate web 
 * **Who?** Enforced by web browsers.
 * **Example:** [https://malicious.com](https://malicious.com) cannot read data from [https://bank.com](https://bank.com).
 
-* **What is CORS?**
+**What is CORS?**
 
 Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
 
