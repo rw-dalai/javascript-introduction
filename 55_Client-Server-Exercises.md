@@ -14,17 +14,27 @@
 * **Q10.** If you change the backend port from 8080 to 5000, what one thing must you change in the frontend?
 * **Q11.** Why test with curl/Postman before/while testing in the browser?
 * **Q12.** What is a public tunnel (ngrok) and when would you use it?
-* **Q13.** What is the **HTTP Protocol** and why is it important?
-* **Q14.** What are the important **HTTP verbs** and their typical uses?
-* **Q15.** What are the important **HTTP status codes** and their meanings?
+* **Q13.** Which approach does our client use: SSR or SPA?
+* **Q14.** After a button click, does the client request a new HTML page or data?
+
+
+## HTTP Basics
+
+* **Q1.** What is the **HTTP Protocol**?
+* **Q2.** What are **HTTP headers**? Which one is important for CORS?
+* **Q3.** What are **HTTP verbs**? Which one did we use for our API?
+* **Q4.** What are **HTTP status codes**? Which one did we use for our API?
+* **Q5.** How can you see the full HTTP request and response in the browser?
+* **Q6.** How can you see the full HTTP request and response using curl?
+
 
 ## API Contract
 
 * **E1.** Given this minimal contract, fill each cell:
 
-  | **Description**   | **Protocol + Verb** | **Path** | **Response** | **Response Status** |
-  | ----------------- | ------------------- | -------- | ------------ |---------------------|
-  | Return a greeting |                     |          |              |                     |
+| **Description**   | **Protocol + Verb** | **Path** | **Response** | **Response Status** |
+| ----------------- | ------------------- | -------- | ------------ |---------------------|
+| Return a greeting |                     |          |              |                     |
 
 
 ## CORS & Origins
@@ -43,17 +53,25 @@
 
 ## HTTP & Testing
 
-* **E1.** What happens if you curl a server that is not running?   
+* **E1.** What happens if you access a server that is not running?
   *  What error do you expect from curl and from the browser?
-  
 
-* **E2.** What happens if you curl a server that is running but the path does not exist?  
+
+* **E2.** What happens if you access a server that is running but the path does not exist (e.g. `/api/unknown`)?
   * What error do you expect from curl and from the browser?
 
 
-## New API Endpoint (Todo List)
+## Ngrok 
 
-> Hard, needs research ! 💪
+> Forwarding https://d29dae378e59.ngrok-free.app -> http://localhost:6150
+
+* **Q1.** What does the following ngrok output mean?
+* **Q2**. Which URL do you use to access the Server API?
+
+
+## Implement API Endpoint
+
+> Hard, needs your best prompt ! 💪
 
 * Following API contract, implement a new API endpoint that returns a list of todo items as JSON.
 

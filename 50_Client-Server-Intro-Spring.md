@@ -11,7 +11,8 @@
 * Two repos (`frontendTodo`, `backendTodo`)
 * React Client (Frontend)
 * Spring Boot Server (Backend)
-* Understand API contracts (endpoint).
+* Understand API contracts (endpoint)
+* Call Server API from Client and render response.
 * Understand SOP/CORS.
 * Share code via Git (GitHub).
 * Use curl/Postman to test APIs.
@@ -106,7 +107,7 @@ We create a simple API endpoint that returns a greeting. API Contracts include a
 
 Hence our API endpoint is reachable via `HTTP GET /api/todos` on that host and port where our server is running.
 
-* Add **Controller** `src/main/java/com/example/backendTodo/TodoController.java`:
+* Implement API Endpoint in **Controller** `src/main/java/com/example/backendTodo/TodoController.java`:
 
 A controller class handles incoming HTTP requests. Each method in the controller corresponds to an API endpoint.
 
@@ -166,14 +167,9 @@ Hello World
 [https://www.postman.com/downloads/](https://www.postman.com/downloads/)
 
 
-* Postman API Specification (Optional Read):
+* Design APIs before you implement it (Optional):
 
-[https://www.postman.com/product/spec-hub/](https://www.postman.com/product/spec-hub/)
-
-
-* Open API Specification (Optional Read):
-
-[https://www.openapis.org/](https://www.openapis.org/)
+[https://swagger.io/tools/swagger-editor/](https://swagger.io/tools/swagger-editor/)
 
   
 
@@ -325,7 +321,7 @@ When two URLs have the same schema, they have the same origin.
 
 ### Understand SOP and CORS
 
-**SOP**
+* **What is SOP?**
 
 Same Origin Policy is a security measure implemented by browsers to isolate web pages from different origins.
 
@@ -333,7 +329,7 @@ Same Origin Policy is a security measure implemented by browsers to isolate web 
 * **Who?** Enforced by web browsers.
 * **Example:** [https://malicious.com](https://malicious.com) cannot read data from [https://bank.com](https://bank.com).
 
-**CORS**
+* **CORS**
 
 Cross-Origin Resource Sharing is a mechanism that relaxes the SOP restrictions.
 
@@ -353,7 +349,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*") // dev-only
+@CrossOrigin(origins = "*") // Implement CORS Headers (do this only for local dev)
 public class TodoController { /* ... */ }
 ```
 
@@ -430,21 +426,21 @@ const res = await fetch(`${API}/api/todos`, {
 
 ### Core concepts 
 
-* **Client**: Client (React) renders UI + calls API endpoints.
-* **Server** Server (Spring Boot) implements API endpoints.
-* **HTTP Protocol**: Client and Server communicate via HTTP protocol.
-* **API contract** `HTTP GET /api/todos` → `"Hello World"`.
-* **Origin**: `protocol://host:port`. Different origin = cross-origin.
-* **SOP (Same-Origin Policy)** Browser blocks cross-origin JavaScript; **curl** doesn’t care.
-* **CORS (Cross Origin Resource Sharing)** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
-* **Ports**: A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
+* **Client:** React renders UI + calls API endpoints.
+* **Server:** Spring Boot implements API endpoints.
+* **API contract:** `HTTP GET /api/todos` → `200 OK "Hello World"`.
+* **HTTP Protocol:** Client and Server communicate via HTTP protocol.
+* **Origin:** `protocol://host:port`. Different origin = cross-origin.
+* **SOP (Same-Origin Policy):** Browser blocks cross-origin JavaScript for security reasons; **curl** doesn’t care.
+* **CORS (Cross Origin Resource Sharing):** Server opt-in. Dev can use `*` (open) for origins; **never** ship that to prod.
+* **Ports:** A port identifies a service (process/program) on a host (machine). Client and server must run on different ports on localhost.
 
 
-* **CORS Error**: Thats what a CORS error looks like in the browser console if the client and the server have different origins:  
+* **CORS Error:** That's what a CORS error looks like in the browser console if the client and the server have different origins:  
 ![img_6.png](img_6.png)
 
 
-* **CORS Header**: Thats what a CORS header looks like when the server allows cross-origin requests:  
+* **CORS Header:** That's what a CORS header looks like when the server allows cross-origin requests:  
 ![img_7.png](img_7.png)
 
 ## 7. Full Reference Code
