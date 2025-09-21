@@ -28,11 +28,11 @@
 
 ## HTTP & Testing
 
-* **E1.** What happens if you access a server that is not running?
+* **Q1.** What happens if you access a server that is not running?
   *  What error do you expect from curl and from the browser?
 
 
-* **E2.** What happens if you access a server that is running but the path does not exist (e.g. `/api/unknown`)?
+* **Q2.** What happens if you access a server that is running but the path does not exist (e.g. `/api/unknown`)?
   * What error do you expect from curl and from the browser?
 
 ## API Contract
