@@ -74,19 +74,36 @@
 
 ## Implement API Endpoint
 
-> Hard, needs your best prompt ! 💪
+> Create a list of todo items in memory on the server and implement API endpoints to manage them.
 
-* Following API contract, implement a new API endpoint that returns a list of todo items as JSON.
+* **E1.** Follow ALL API contracts above to implement the new endpoints on the server.
+  * Use an in-memory array to store the todo items.
+  * Use curl or Postman to verify that getting the list of todos returns the correct JSON.
+
 
 | **Description**      | **Protocol + Verb** | **Path**     | **Response**                                     | **Response Status** |
-| -------------------- | ------------------- |--------------|--------------------------------------------------|---------------------|
+| -------------------- | ------------------- | ------------ | ------------------------------------------------ | ------------------- |
 | Return list of todos | HTTP GET            | `/api/todos` | `[{ "id": 1, "title": "Learn Programming",.. }]` | 200 OK              |
 
-* **E1.** Implement the new API endpoint **on the server** that returns a list of todo items as JSON.
-  * Use curl or Postman to verify the response is a JSON array of todos.
+
+---
+
+| **Description** | **Protocol + Verb** | **Path**     | **Request Body**          | **Response**                      | **Response Status** |
+| --------------- | ------------------- | ------------ | ------------------------- |-----------------------------------| ------------------- |
+| Create new todo | HTTP POST           | `/api/todos` | `{ "title": "New Task" }` | `{ "id": 2, "title": "New Task"}` | 201 Created         |
 
 
-* **E2.** Call the new API endpoint **on the client** and render the list of todos.
+---
+
+| **Description** | **Protocol + Verb** | **Path**          | **Response** | **Response Status** |
+| --------------- | ------------------- | ----------------- | ------------ | ------------------- |
+| Delete a todo   | HTTP DELETE         | `/api/todos/{id}` | *(empty)*    | 204 No Content      |
+
+
+
+## Implement Client
+
+* **E2.** Call the /api/todos endpoint from the client.
   * Use fetch to call the endpoint and log the response to the console.
   * Render the list of todos in the DOM.
 
