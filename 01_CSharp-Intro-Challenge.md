@@ -2,76 +2,39 @@
 
 ## 1. Java Classes to Translate
 
-### Person Class (Beginner Level)
+### Person Class
 
-Translate the following Java class into **worst** practice and **best** practice C#.
+Create a C# class `Person` based on the following Java class.
+
+- **Create Console App**
+
+```sh
+dotnet new console -n PersonApp
+cd PersonApp
+```
+
+
+- **Translate the following Java class to C#:**
 
 ```java
-/**
- * A simple Person class demonstrating basic OOP concepts
- */
 public class Person {
 
-    // Fields --------------------------------------------------
+    // Fields / Attributes
     private String firstName;
-    private String lastName;
-    private int age;
 
-    // Ctor --------------------------------------------------
+    // Ctor
     public Person() {
         this.firstName = "";
-        this.lastName = "";
-        this.age = 0;
-    }
-    
-    public Person(String firstName, String lastName, int age) {
-        setFirstName(firstName);
-        setLastName(lastName);
-        setAge(age);
     }
 
-    // Getter --------------------------------------------------
+    // Getter
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    // Setter --------------------------------------------------
+    // Setter
     public void setFirstName(String firstName) {
-        this.firstName = firstName != null ? firstName.trim() : "";
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName != null ? lastName.trim() : "";
-    }
-
-    public void setAge(int age) {
-        if (age < 0 || age > 100) {
-            throw new IllegalArgumentException("Age must be between 0 and 100");
-        }
-        this.age = age;
-    }
-    
-    // Methods ----------------------------------------
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
-
-    public boolean isAdult() {
-        return age >= 18;
-    }
-
-    // toString --------------------------------------------------
-    @Override
-    public String toString() {
-        return String.format("Person{name='%s', age=%d}", getFullName(), age);
+        this.firstName = firstName;
     }
 }
 ```
@@ -80,33 +43,27 @@ public class Person {
 
 Answer these questions to deepen your understanding of C# concepts when translating from Java:
 
----
-
-### Data Types & Type System
-
-**1. Value Types vs Reference Types**
-
-* What are the main differences between value types and reference types in C#?
-
----
-
 ### Properties
 
-**2. Fields**
+**1. Fields**
 
 * What is a field in C#?
 
-**3. Properties**
+**2. Properties**
 
 * What is a property in C# and how does it differ from a field?
 
-**4. Auto-Implemented Properties**
+**3. Auto-Implemented Properties**
 
 * What are auto-implemented properties in C#?
 
-**5. Backing Fields**
+**4. Backing Fields**
 
 * What is a backing field in C#?
+
+**5. Object Initializer Syntax**
+
+* How do you use object initializer syntax in C# to set properties when creating an object?
 
 **6. Computed (Calculated) Properties**
 
